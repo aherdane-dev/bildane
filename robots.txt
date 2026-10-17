@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://digitmoll.com/sitemap.xml
+Sitemap: https://bildane.com/sitemap.xml
