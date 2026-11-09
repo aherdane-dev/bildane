@@ -1,0 +1,540 @@
+/* ============================================================
+   Bildane v2: el Pla és un mosaic, a escala d'estudi.
+   Moviment: només el que depèn del scroll (--p, --q), calculat a
+   assets/v2.js. Sense JS o amb prefers-reduced-motion, tot queda quiet.
+   Mides de lletra: només les variables de bildane.css (--f-peu a --f-5).
+   ============================================================ */
+
+html { scroll-padding-top: 5rem; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+body.menu-obert { overflow: hidden; }
+
+/* ---------- capçalera: rajoles soltes; el WhatsApp sempre a mà (director D4) ---------- */
+.cap {
+  position: fixed; inset: 0 0 auto; z-index: 40;
+  display: flex; align-items: center; gap: .6rem;
+  padding: 1rem var(--vora); pointer-events: none;
+}
+.cap > * { pointer-events: auto; }
+.cap .marca { background: var(--blanc); padding: .55rem .8rem .6rem; font-size: var(--f-marca); clip-path: polygon(0 4%, 100% 0, 98% 100%, 2% 96%); min-height: 44px; align-items: center; }
+.cap .llengua, .cap .obre, .cap .wa {
+  background: var(--blanc); color: var(--blau);
+  font: 700 var(--f-etiqueta)/1 var(--lletra); text-decoration: none;
+  min-height: 44px; display: inline-flex; align-items: center;
+  padding: .7rem 1rem .75rem; border: 0; cursor: pointer;
+}
+.cap .llengua { margin-left: auto; clip-path: polygon(2% 0, 100% 5%, 97% 100%, 0 94%); }
+.cap .wa { background: var(--rostoll); clip-path: polygon(1% 5%, 100% 0, 98% 100%, 0 96%); }
+.cap .obre { clip-path: polygon(0 6%, 100% 0, 97% 100%, 3% 94%); }
+.cap .wa:hover { background: #EAB257; }
+/* sobre les seccions de rostoll, la peça del WhatsApp es veu per la vora blanca de dins */
+.cap .wa { box-shadow: inset 0 0 0 3px var(--blanc); }
+/* en baixar només marxen la marca i la llengua: el WhatsApp i el menú es queden */
+.cap .marca, .cap .llengua { transition: translate .3s var(--corba); }
+.cap.amagada .marca, .cap.amagada .llengua { translate: 0 -160%; }
+@media (prefers-reduced-motion: reduce) { .cap .marca, .cap .llengua { transition: none; } }
+.cap .llengua:focus-visible, .cap .obre:focus-visible, .cap .marca:focus-visible, .cap .wa:focus-visible { outline: none; background: var(--blau); color: var(--calc); text-decoration: underline; }
+@media (max-width: 760px) {
+  .cap .llengua { display: none; }
+  .cap .wa { margin-left: auto; }
+  /* al mòbil, les peces flotants trepitjaven el text: una banda de calç al darrere, amb la vora tallada (crític F2) */
+  .cap { background: var(--calc); padding-block: .6rem; pointer-events: auto; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 88%); }
+}
+@media (max-width: 400px) {
+  .cap { gap: .4rem; padding-inline: .75rem; }
+  .cap .marca { font-size: 1.1rem; padding: .5rem .55rem; gap: .35rem; }
+  .cap .wa, .cap .obre { padding-inline: .7rem; font-size: .95rem; }
+}
+
+/* ---------- menú a pantalla sencera ---------- */
+.menu {
+  position: fixed; inset: 0; z-index: 50; overflow-y: auto;
+  background: var(--blau); color: var(--calc);
+  padding: 6rem var(--vora) 3rem;
+  display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 2rem var(--vora); align-content: start;
+}
+.menu[hidden] { display: none; }
+.menu .tanca { position: absolute; top: 1rem; right: var(--vora); background: var(--rostoll); color: var(--blau); border: 0; font: 700 var(--f-etiqueta)/1 var(--lletra); min-height: 44px; padding: .7rem 1rem .75rem; cursor: pointer; clip-path: polygon(0 6%, 100% 0, 97% 100%, 3% 94%); }
+.menu .tanca:focus-visible { outline: none; background: var(--calc); text-decoration: underline; }
+.menu ul { list-style: none; margin: 0; padding: 0; }
+.menu-contacte { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; font-size: var(--f-0); font-weight: 700; }
+.menu-contacte a:not(.boto):hover { color: var(--rostoll); }
+/* nivell 2 (director D25) */
+.menu-serveis a { display: block; font-weight: 650; font-size: var(--f-2); line-height: 1.15; letter-spacing: -.01em; text-decoration: none; padding: .35rem 0; }
+.menu-serveis a:hover, .menu-serveis a:focus-visible { color: var(--rostoll); text-decoration: underline; }
+.menu-altres a { display: block; font-size: var(--f-0); font-weight: 500; padding: .5rem 0; }
+.menu-altres { align-self: end; }
+@media (max-width: 760px) { .menu { grid-template-columns: 1fr; } }
+
+/* ---------- escenes lligades al scroll ---------- */
+[data-scroll] { position: relative; height: var(--llarg, 160vh); }
+.escena { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+[data-scroll].quiet { height: auto; }
+.quiet .escena { position: relative; }
+
+/* ---------- 1. hero: qui és i què fa en una pantalla; el Pla s'arma (director D1 i D2) ---------- */
+.heroi { --llarg: 160vh; }
+.heroi .escena { --b: clamp(0, var(--p, 0) / .55, 1); --z: clamp(0, (var(--p, 0) - .55) / .45, 1); }
+.pla { position: absolute; inset: 0; container-type: size; }
+.pla .mosaic {
+  position: absolute; left: 50%; top: 50%;
+  width: max(100cqw, calc(100cqh * var(--prop))); aspect-ratio: var(--prop);
+  translate: calc(-50% - var(--z) * var(--sx)) calc(-50% - var(--z) * var(--sy));
+  transform-origin: var(--ox) var(--oy);
+  scale: calc(1 + var(--z) * var(--z) * 1.9);
+}
+.pla .t {
+  /* --a: 1 amb la peça esbotzada, 0 quan ja és al seu lloc */
+  --e: clamp(0, (var(--b) - var(--k) * .35) / .65, 1);
+  --a: calc(1 - var(--e) * var(--e) * (3 - 2 * var(--e)));
+  translate: calc(var(--dx) * 1cqw * var(--a)) calc(var(--dy) * 1cqw * var(--a));
+  rotate: calc(var(--gir) * 1deg * var(--a));
+  /* les peces de sota el titular creixen quan el titular se'n va: mai capes mig transparents */
+  scale: calc((1 - var(--a) * .12) * (1 - var(--t, 0) * (1 - clamp(0, var(--z) * 3, 1))));
+}
+.pla .fita { scale: calc(.4 + var(--b) * .6); rotate: calc((1 - var(--b)) * -90deg); }
+/* el nom del poble: o no es veu o es veu del tot */
+.pla .lloc { opacity: clamp(0, (var(--b) - .96) * 100, 1); }
+.titular {
+  position: absolute; z-index: 2; left: var(--vora); top: clamp(5.5rem, 13vh, 8rem); max-width: 60vw;
+  translate: 0 calc(var(--z) * -30vh); opacity: clamp(0, 1 - var(--z) * 3.2, 1);
+}
+/* «para los negocios» (9.6em) ha de cabre en una línia dins els 60vw: 6vw com a molt */
+.titular h1 { font-size: min(var(--f-5), 6vw); line-height: .95; letter-spacing: -.025em; font-weight: 800; font-stretch: var(--ample); margin: 0; }
+.titular h1 span { display: block; }
+.titular .sub { font-size: var(--f-1); line-height: var(--li-entradeta); max-width: 36ch; margin: 1.5rem 0 0; }
+.titular .accions { margin-top: 1.25rem; }
+.titular .nota-boto { margin: .75rem 0 0; max-width: none; }
+/* la tira dels quatre serveis principals: peces enllaçades, cadascuna del seu color */
+.tira { list-style: none; margin: 1.5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--junta); max-width: min(60vw, 46rem); }
+.tira a {
+  display: flex; align-items: center; min-height: 44px; padding: .7rem 1rem;
+  font: 600 var(--f-etiqueta)/1.15 var(--lletra); text-decoration: none; color: var(--blau);
+}
+.tira-telefon a { background: var(--blau); color: var(--calc); clip-path: polygon(0 6%, 100% 0, 98% 100%, 1% 94%); }
+.tira-albarans a { background: var(--rostoll); clip-path: polygon(1% 0, 99% 7%, 100% 95%, 0 100%); }
+.tira-webs a { background: var(--verd); color: var(--calc); clip-path: polygon(0 3%, 98% 0, 100% 100%, 2% 92%); }
+.tira-google a { background: var(--blanc); clip-path: polygon(2% 8%, 100% 0, 97% 96%, 0 100%); }
+.tira a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+.tira a:focus-visible { outline: none; background: var(--mangan); color: var(--calc); text-decoration: underline; }
+/* blau i verd → manganès canvia poc (1,5:1 i 2,5:1): una vora de rostoll per dins fa que el focus es vegi (QA v3) */
+.tira a:focus-visible { box-shadow: inset 0 0 0 4px var(--rostoll); }
+.tira-webs a:focus-visible { box-shadow: inset 0 0 0 4px var(--calc); }
+.coords {
+  position: absolute; z-index: 3; right: var(--vora); bottom: 1.25rem; margin: 0;
+  font-size: var(--f-peu); background: var(--calc); padding: .2rem .5rem;
+  opacity: calc(1 - var(--z));
+}
+.mosaic-petit { display: none; }
+@media (max-width: 760px), (max-width: 1100px) and (orientation: portrait) {
+  .mosaic-gran { display: none; }
+  .mosaic-petit { display: block; }
+  .titular { top: 5.5rem; max-width: none; right: var(--vora); }
+  .titular h1 { font-size: var(--f-5); }
+  .tira { max-width: none; }
+  .pla { --fita: 3rem; }
+  .pla .lloc { transform-origin: left center; scale: calc(1 / (1 + var(--z) * var(--z) * 1.2)); }
+  .pla .mosaic { scale: calc(1 + var(--z) * var(--z) * 1.2); translate: calc(-50% - var(--z) * var(--sx)) calc(-50% - var(--z) * var(--sy) * .3); }
+}
+/* al mòbil el hero va quiet (v2.js hi posa .quiet): el text primer i el mosaic sota el botó */
+@media (max-width: 760px) {
+  .tira { display: grid; grid-template-columns: 1fr 1fr; }
+  .tira a { height: 100%; }
+  .heroi.quiet .escena { height: auto; display: flex; flex-direction: column; }
+  .heroi.quiet .titular { position: relative; inset: auto; order: 1; padding: 5.5rem var(--vora) 2rem; left: 0; }
+  .heroi.quiet .pla { position: relative; inset: auto; order: 2; height: min(80vw, 22rem); }
+  .heroi.quiet .pla .mosaic { top: auto; bottom: 0; width: 100cqw; translate: -50% 0; }
+  .heroi.quiet .coords { bottom: .75rem; }
+}
+
+/* ---------- capítols: pantalla sencera, color de peça ---------- */
+.capitol { position: relative; padding: clamp(5rem, 12vh, 9rem) var(--vora); scroll-margin-top: 0; }
+.fons-calc { --peca: var(--calc); background: var(--peca); color: var(--blau); }
+.fons-blanc { --peca: var(--blanc); background: var(--peca); color: var(--blau); }
+.fons-blau { --peca: var(--blau); background: var(--peca); color: var(--calc); }
+.fons-verd { --peca: var(--verd); background: var(--peca); color: var(--calc); }
+.fons-rostoll { --peca: var(--rostoll); background: var(--peca); color: var(--blau); }
+/* les peces de color tenen la vora tallada: entre peça i peça, la junta de calç */
+.fons-blau, .fons-verd, .fons-rostoll { clip-path: polygon(0 1.2vw, 100% 0, 100% calc(100% - 1vw), 0 100%); margin-block: var(--junta); }
+
+/* títols de secció (nivell 1) i entradetes */
+.feines-cap h2, .seccio-titol { font-size: var(--f-4); line-height: var(--li-titol); text-wrap: balance; letter-spacing: -.02em; font-weight: 800; font-stretch: var(--ample); margin: 0 0 1rem; }
+.feines-cap p, .seccio-intro { font-size: var(--f-1); line-height: var(--li-entradeta); margin: 0; max-width: 40ch; }
+
+/* ---------- 2. índex dels vuit serveis (director D10) ---------- */
+.index-serveis { padding-bottom: clamp(4rem, 10vh, 7rem); }
+.index-serveis .seccio-titol { max-width: 18ch; }
+.is-files { list-style: none; margin: calc(var(--aire) * 1.5) 0 0; padding: 0; display: grid; gap: var(--junta); }
+.is-fila {
+  position: relative; scroll-margin-top: 5rem;
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 3fr); gap: .35rem 2rem; align-items: baseline;
+  padding: 1.25rem 1.5rem; margin-inline: -1.5rem;
+}
+.is-paraula { font-weight: 800; font-stretch: var(--ample); font-size: min(var(--f-4), 3.5rem); line-height: 1; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.is-linia { margin: 0; font-size: var(--f-0); max-width: 40ch; }
+.is-nom { font-weight: 650; font-size: var(--f-0); line-height: 1.3; justify-self: end; text-align: right; }
+.is-nom::after { content: ""; position: absolute; inset: 0; }
+.is-etiqueta { grid-column: 3; justify-self: end; font-weight: 600; font-size: var(--f-etiqueta); }
+/* la primera fila, la del servei estrella, sobre una peça blava; les altres, en passar-hi, sobre blanc */
+.is-fila:first-child { background: var(--blau); color: var(--calc); clip-path: polygon(0 4%, 100% 0, 99.6% 100%, .3% 96%); }
+.is-fila:first-child :focus-visible { outline-color: var(--rostoll); }
+.is-fila:not(:first-child):is(:hover, :focus-within) { background: var(--blanc); clip-path: polygon(.4% 0, 100% 6%, 99.7% 100%, 0 94%); }
+.is-fila:hover .is-nom { text-decoration-thickness: 3px; }
+@media (prefers-reduced-motion: no-preference) { .is-fila { transition: background-color .2s var(--corba); } }
+@media (max-width: 860px) {
+  .is-fila { grid-template-columns: 1fr; gap: .4rem; padding: 1.1rem var(--vora); margin-inline: calc(-1 * var(--vora)); }
+  .is-nom, .is-etiqueta { justify-self: start; text-align: left; grid-column: 1; }
+}
+
+/* ---------- 3–5. capítols de servei ---------- */
+.servei, .contacte { min-height: 100svh; }
+.servei {
+  /* les paraules gegants es mesuren amb l'amplada de la secció (cqi) */
+  container-type: inline-size;
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(1rem, 2vw, 2rem);
+  align-items: start;
+}
+.servei .paraula {
+  grid-column: 1 / -1; grid-row: 1; position: relative; z-index: 2;
+  margin: 0 0 -.08em; font-weight: 900; font-stretch: var(--ample-gegant); letter-spacing: -.02em; line-height: .8;
+  /* --n és el nombre de lletres: a 125 % i 900, Archivo fa ~.76em per lletra en el pitjor cas */
+  font-size: min(22cqi, calc(128cqi / var(--n)));
+  white-space: nowrap;
+}
+.servei .foto {
+  grid-row: 2; grid-column: 3 / -1; position: relative; overflow: hidden;
+  height: min(70svh, 50vw); background: var(--blau);
+}
+.servei .text {
+  grid-row: 3; grid-column: 1 / 7; position: relative; z-index: 2;
+  margin-top: clamp(-9rem, -10vw, -4rem); padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem) 0 0;
+  background: var(--peca);
+}
+.servei.revers .paraula { text-align: right; }
+.servei.revers .foto { grid-column: 1 / 11; }
+.servei.revers .text { grid-column: 7 / -1; padding: clamp(1.5rem, 3vw, 2.5rem) 0 0 clamp(1.5rem, 3vw, 2.5rem); }
+/* sense foto (Webs, que porta les feines a sota): el text just sota la paraula */
+.servei.sense-foto { min-height: 0; padding-bottom: clamp(3rem, 8vh, 5rem); }
+.servei.sense-foto .text { grid-row: 2; grid-column: 1 / 8; margin-top: var(--aire); padding: 0; }
+.servei.sense-foto.revers .text { grid-column: 6 / -1; }
+/* nivell 2 */
+.servei .nom { font-size: var(--f-2); line-height: 1.1; font-weight: 650; margin: 0 0 1rem; letter-spacing: -.01em; }
+.servei .text > p { margin: 0 0 1.25rem; max-width: 44ch; font-size: var(--f-1); line-height: var(--li-entradeta); }
+.servei-etiqueta { margin: 0 0 .5rem; font-weight: 600; font-size: var(--f-etiqueta); }
+.mes-sobre { display: inline-block; margin-top: 1.25rem; padding-block: .6rem; font-weight: 700; font-size: var(--f-0); }
+
+/* la foto dins la peça es mou més lenta que la peça (suau: detector IA34) */
+.foto-moguda img {
+  position: absolute; left: 0; top: -5%; width: 100%; height: 110%; object-fit: cover;
+  translate: 0 calc((var(--q, .5) - .5) * -6%);
+}
+
+/* vinyetes: tessel·les */
+.tesseles { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.tesseles li { position: relative; padding-left: 1.4rem; }
+.tesseles li::before { content: ""; position: absolute; left: 0; top: .5em; width: .6em; height: .6em; background: var(--rostoll); rotate: 7deg; }
+.fons-rostoll .tesseles li::before { background: var(--blau); }
+
+/* ---------- la vinyeta del servei: el producte, dibuixat (director D8) ---------- */
+.vinyeta { position: relative; display: grid; place-items: center; padding: clamp(.5rem, 1.5vw, 1.25rem); clip-path: polygon(0 2%, 99% 0, 100% 97%, 1.5% 100%); }
+.vinyeta svg, .vinyeta img { display: block; width: 100%; height: auto; }
+.v-blau { background: var(--blau); }
+.v-verd { background: var(--verd); }
+.v-rostoll { background: var(--rostoll); }
+.v-blanc { background: var(--blanc); }
+.servei .detall {
+  grid-row: 3; grid-column: 8 / -1; position: relative; z-index: 3; overflow: hidden;
+  margin-top: clamp(-8rem, -8vw, -4rem);
+}
+.servei .detall:not(.vinyeta) { height: min(40svh, 26vw); background: var(--blau); }
+.servei .detall.vinyeta { aspect-ratio: 4 / 3; align-self: start; }
+.servei.revers .detall { grid-column: 1 / 6; }
+.servei .assistent { grid-row: 5; }
+
+.nota-boto, .nota-correu { margin: 0; font-size: var(--f-0); line-height: 1.4; max-width: 40ch; }
+.nota-correu a { font-weight: 600; }
+
+@media (max-width: 860px) {
+  .servei .paraula { font-size: min(26cqi, calc(128cqi / var(--n))); margin-bottom: .22em; }
+  .servei .foto, .servei.revers .foto { grid-column: 1 / -1; height: 56svh; margin-inline: calc(-1 * var(--vora)); }
+  .servei .text, .servei.revers .text { grid-column: 1 / -1; margin-top: -3.5rem; margin-right: 2.5rem; padding: 1.5rem 1.25rem 0 0; }
+  .servei.revers .text { margin: -3.5rem 0 0 2.5rem; padding: 1.5rem 0 0 1.25rem; }
+  .servei.sense-foto .text, .servei.sense-foto.revers .text { grid-column: 1 / -1; margin: var(--aire) 0 0; padding: 0; }
+  .servei .detall, .servei.revers .detall { grid-row: 4; grid-column: 1 / -1; margin: var(--aire) calc(-1 * var(--vora)) 0; }
+  .servei .detall:not(.vinyeta) { display: none; }
+}
+@media (max-width: 520px) {
+  .servei .text, .servei.revers .text { margin-inline: 0; padding-inline: 0 1rem; }
+  .servei.revers .text { padding-inline: 1rem 0; }
+}
+
+/* ---------- feines: el títol no trepitja la captura (director D6 i D23) ---------- */
+.feines-cap { margin-bottom: clamp(3rem, 8vh, 5rem); }
+.feina {
+  container-type: inline-size;
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(1rem, 2vw, 2rem);
+  align-items: start;
+}
+.feina + .feina { margin-top: clamp(5rem, 12vh, 8rem); }
+.feina h3 {
+  grid-column: 1 / -1; grid-row: 1; position: relative;
+  /* «A.D. La Llàntia» fa 8.9em: amb 10.6cqi cap en una línia a qualsevol amplada */
+  font-size: min(var(--f-5), 10.6cqi); line-height: .9; letter-spacing: -.02em; font-weight: 900; font-stretch: var(--ample-gegant); margin: 0 0 .15em;
+}
+.feina figure { margin: 0; }
+.feina .escriptori { grid-column: 1 / 10; grid-row: 2; }
+.feina .captura { aspect-ratio: 1440 / 900; overflow: hidden; background: var(--blanc); box-shadow: 0 0 0 var(--junta) var(--calc); }
+.feina figcaption { margin-top: .9rem; font-size: var(--f-peu); }
+.feina .mobil { grid-column: 10 / 13; grid-row: 2; align-self: end; margin: 0 0 2.4rem; aspect-ratio: 390 / 844; overflow: hidden; position: relative; z-index: 3; box-shadow: 0 0 0 var(--junta) var(--calc); background: var(--blanc); }
+.feina img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.feina .dades { grid-column: 1 / 7; grid-row: 3; margin-top: var(--aire); }
+.feina .tipus { font-weight: 700; color: var(--rostoll); margin: 0 0 .9rem; }
+.feina .dades > p { margin: 0 0 1.25rem; max-width: 44ch; }
+.fitxa { display: grid; grid-template-columns: auto 1fr; gap: .35rem 1.25rem; margin: 0 0 1.5rem; }
+.fitxa dt { opacity: .85; }
+.fitxa dd { margin: 0; font-weight: 500; }
+.enllac-fort { font-weight: 700; font-size: var(--f-1); display: inline-block; padding-block: .4rem; min-height: 44px; }
+.feina:nth-of-type(even) h3 { text-align: right; }
+.feina:nth-of-type(even) .escriptori { grid-column: 4 / -1; }
+.feina:nth-of-type(even) .mobil { grid-column: 1 / 4; }
+.feina:nth-of-type(even) .dades { grid-column: 7 / -1; }
+@media (max-width: 860px) {
+  .feina h3, .feina:nth-of-type(even) h3 { text-align: left; font-size: 10.6cqi; }
+  .feina .escriptori, .feina:nth-of-type(even) .escriptori { grid-column: 1 / -1; }
+  .feina .mobil, .feina:nth-of-type(even) .mobil { grid-column: 8 / -1; grid-row: 3; margin: calc(-1 * var(--aire)) 0 0; align-self: start; }
+  .feina .dades, .feina:nth-of-type(even) .dades { grid-column: 1 / -1; grid-row: 4; margin-top: 1.5rem; }
+}
+
+/* ---------- com treballo: una llista normal ---------- */
+.passos { list-style: decimal; margin: clamp(2.5rem, 6vh, 4rem) 0 0; padding: 0 0 0 2.2em; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem clamp(3rem, 6vw, 6rem); max-width: 68rem; font-size: var(--f-2); }
+.pas::marker { font-weight: 650; }
+.pas h3 { font-size: var(--f-2); line-height: 1.1; margin: 0 0 .5rem; font-weight: 650; letter-spacing: -.01em; }
+.pas p { margin: 0; max-width: 40ch; font-size: var(--f-0); }
+@media (max-width: 760px) { .passos { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* ---------- preguntes ---------- */
+.preguntes { display: grid; gap: var(--junta); margin-top: clamp(2.5rem, 6vh, 4rem); max-width: 62rem; }
+.preguntes details { background: var(--blanc); }
+.preguntes details:nth-child(odd) { clip-path: polygon(0 2%, 100% 0, 99.7% 100%, .3% 98%); }
+.preguntes summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  padding: 1.25rem 1.5rem; font-weight: 650; font-size: var(--f-1); line-height: 1.25; letter-spacing: -.01em;
+  overflow-wrap: anywhere; hyphens: auto;
+}
+.preguntes summary::-webkit-details-marker { display: none; }
+.preguntes summary:focus-visible { outline-offset: -3px; }
+.preguntes details p { margin: 0; padding: 0 1.5rem 1.5rem; max-width: 62ch; font-size: var(--f-0); }
+/* la creu: dues barres de rostoll que passen a «−» (director D20) */
+.creu { position: relative; display: inline-block; flex: none; width: 18px; height: 18px; vertical-align: middle; }
+.creu::before, .creu::after { content: ""; position: absolute; background: var(--rostoll); }
+.creu::before { left: 0; right: 0; top: 7px; height: 4px; }
+.creu::after { top: 0; bottom: 0; left: 7px; width: 4px; }
+details[open] > summary .creu { rotate: 90deg; }
+details[open] > summary .creu::after { scale: 1 0; }
+@media (prefers-reduced-motion: no-preference) { .creu, .creu::after { transition: rotate .25s var(--corba), scale .25s var(--corba); } }
+
+/* ---------- contacte (director D17) ---------- */
+.contacte { display: grid; align-content: center; overflow: hidden; }
+.contacte h2 { position: relative; z-index: 1; font-size: var(--f-5); line-height: .92; letter-spacing: -.025em; font-weight: 800; font-stretch: var(--ample); margin: 0 0 1.5rem; max-width: 12ch; text-wrap: balance; }
+.contacte > p, .contacte .vies, .contacte .accions { position: relative; z-index: 1; }
+.contacte > p { max-width: 40ch; margin: 0; font-size: var(--f-1); line-height: var(--li-entradeta); }
+.contacte .accions { margin-top: 2rem; display: flex; align-items: center; gap: 1.25rem; }
+.contacte .boto { font-size: var(--f-1); padding: 1.3rem 2rem 1.35rem; }
+.contacte .nota-boto { margin-top: .9rem; position: relative; z-index: 1; }
+.vies { list-style: none; padding: 0; margin: 2.25rem 0 0; display: grid; gap: .6rem; font-size: var(--f-2); font-weight: 600; }
+.vies li { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .75rem; }
+.via-nom { font-size: var(--f-0); font-weight: 400; min-width: 5.5rem; }
+.copia {
+  font: 700 var(--f-peu)/1 var(--lletra); color: var(--blau); background: var(--calc); border: 0; cursor: pointer;
+  min-height: 44px; min-width: 44px; padding: 0 .9rem; clip-path: polygon(0 8%, 100% 0, 96% 100%, 3% 92%);
+}
+.copia:hover { background: var(--rostoll); }
+.copia:focus-visible { outline: none; background: var(--rostoll); text-decoration: underline; }
+/* calç → rostoll és 1,9:1: una vora blava per dins (el clip-path retalla l'outline) (QA v3) */
+.copia:focus-visible { box-shadow: inset 0 0 0 4px var(--blau); }
+.contacte .on { margin-top: 2rem; position: relative; z-index: 1; max-width: 48ch; }
+.contacte a:not(.boto):hover { color: var(--rostoll); }
+.fita-gran { position: absolute; right: -6vw; top: 50%; translate: 0 -50%; width: clamp(12rem, 30vw, 28rem); rotate: calc(var(--q, .5) * 60deg - 30deg); }
+.fita-gran svg { width: 100%; height: auto; aspect-ratio: 1; }
+/* el lloc del retrat d'en Bilal, quan n'hi hagi (director D3) */
+.retrat-contacte { display: block; position: relative; flex: none; width: 7rem; height: 9rem; overflow: hidden; background: var(--calc); }
+.retrat-contacte img { width: 100%; height: 100%; object-fit: cover; }
+.retrat-petit { display: inline-block; position: relative; vertical-align: middle; width: 56px; height: 70px; margin-right: .75rem; overflow: hidden; clip-path: polygon(0 3%, 100% 0, 96% 100%, 4% 96%); }
+.retrat-petit img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 760px) {
+  .fita-gran { top: auto; bottom: -3rem; right: -5rem; translate: 0; width: 12rem; }
+  .contacte .boto { font-size: var(--f-1); padding: 1.1rem 1.4rem 1.15rem; }
+  .vies { font-size: var(--f-1); }
+  /* l'etiqueta a la seva línia; l'adreça i «Copiar» junts a sota (crític F3) */
+  .via-nom { flex-basis: 100%; min-width: 0; }
+}
+
+/* ---------- pàgina de servei: títol i botó a la primera pantalla (director D5) ---------- */
+.servei-cap { padding-top: clamp(5.5rem, 12vh, 7.5rem); padding-bottom: clamp(3rem, 8vh, 5rem); container-type: inline-size; }
+.servei-cap .tornar { display: inline-block; font-weight: 700; padding-block: .6rem; margin-bottom: .75rem; }
+.servei-cap .paraula { margin: 0 0 .12em; font-weight: 900; font-stretch: var(--ample-gegant); letter-spacing: -.02em; line-height: .8; font-size: min(16cqi, calc(110cqi / var(--n)), 11rem); position: relative; z-index: 2; white-space: nowrap; }
+.servei-cap .text { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem var(--vora); margin-top: clamp(1.5rem, 4vh, 2.5rem); align-items: start; }
+.servei-cap h1 { font-size: min(var(--f-4), 10.5vw); overflow-wrap: anywhere; line-height: 1; letter-spacing: -.02em; font-weight: 800; font-stretch: var(--ample); margin: 0; max-width: 14ch; text-wrap: balance; }
+.servei-cap .text p { margin: 0 0 1rem; max-width: 44ch; }
+.servei-cap .entradeta { font-size: var(--f-1); line-height: var(--li-entradeta); }
+.servei-per-a-qui strong { font-weight: 600; }
+.servei-cap .accions { margin: 1.5rem 0 .75rem; }
+.servei-cap .nota-boto, .servei-cap .nota-correu { margin: 0 0 .35rem; }
+/* la banda: la foto i, al costat, la vinyeta del servei en el seu color */
+.banda { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); margin-top: clamp(2.5rem, 7vh, 4.5rem); align-items: end; }
+.banda .foto { grid-column: 1 / 9; grid-row: 1; position: relative; overflow: hidden; height: min(56svh, 40vw); background: var(--blau); }
+.banda .vinyeta { grid-column: 8 / -1; grid-row: 1; z-index: 2; aspect-ratio: 4 / 3; margin-bottom: -2.5rem; box-shadow: 0 0 0 var(--junta) var(--calc); }
+.banda.sense-foto .vinyeta { grid-column: 1 / -1; aspect-ratio: auto; height: min(56svh, 40vw); margin: 0; padding-block: clamp(1rem, 3vw, 2rem); }
+.banda.sense-foto .vinyeta svg { width: auto; height: 100%; max-width: 100%; }
+.vinyeta-pantalla img { width: auto; height: 100%; box-shadow: 0 0 0 var(--junta) var(--calc); }
+@media (min-width: 861px) { .banda.sense-foto .vinyeta { grid-column: 2 / 12; } .banda.sense-foto .vinyeta-pantalla { grid-column: 4 / 10; } }
+@media (max-width: 860px) {
+  .servei-cap .text { grid-template-columns: 1fr; }
+  .servei-cap .paraula { font-size: min(24cqi, calc(118cqi / var(--n))); }
+  .banda .foto { grid-column: 1 / -1; height: 48vw; margin-inline: calc(-1 * var(--vora)); }
+  .banda .vinyeta { grid-column: 1 / -1; grid-row: 2; margin: var(--junta) calc(-1 * var(--vora)) 0; }
+  .banda.sense-foto .vinyeta { grid-row: 1; height: auto; aspect-ratio: 4 / 3; margin-inline: calc(-1 * var(--vora)); }
+  .banda.sense-foto .vinyeta svg { width: 100%; height: auto; }
+  .banda.sense-foto .vinyeta-pantalla { aspect-ratio: auto; height: 120vw; }
+  .banda.sense-foto .vinyeta-pantalla img { height: 100%; width: auto; }
+}
+
+/* «Et sona?»: el que diu el client, en gran i entre cometes */
+.et-sona { padding-top: clamp(4rem, 10vh, 6rem); }
+.et-sona-llista { margin: 1.5rem 0 0; padding: 0 0 0 1.2em; display: grid; gap: .6rem; max-width: 48ch; font-size: var(--f-1); line-height: 1.45; }
+.et-sona-llista li::marker { color: var(--verd); }
+
+/* la prova d'albarans: el títol i el text al costat */
+.prova { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 1.5rem var(--vora); align-items: start; padding-top: clamp(3rem, 8vh, 5rem); }
+.prova p { margin: 0 0 1rem; font-size: var(--f-1); line-height: var(--li-entradeta); max-width: 44ch; grid-column: 2; }
+.prova .seccio-titol { grid-row: 1 / span 3; }
+@media (max-width: 860px) { .prova { grid-template-columns: 1fr; } .prova p, .prova .seccio-titol { grid-column: 1; grid-row: auto; } }
+
+/* ---------- pàgina de servei: com funciona (text i dues fotos que se solapen) ---------- */
+.com-funciona { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 2rem clamp(2rem, 6vw, 6rem); align-items: center; }
+.com-funciona.sense-fotos { grid-template-columns: minmax(0, 1fr); }
+.cf-text p { font-size: var(--f-0); max-width: 58ch; margin: 0 0 1.1rem; }
+.cf-fotos { position: relative; display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); grid-template-rows: auto auto; }
+.cf-foto { position: relative; margin: 0; overflow: hidden; background: var(--blau); }
+.cf-foto-1 { grid-column: 1 / 9; grid-row: 1; height: min(56svh, 34vw); }
+.cf-foto-2 { grid-column: 5 / -1; grid-row: 2; height: min(34svh, 20vw); margin-top: clamp(-6rem, -6vw, -3rem); z-index: 2; box-shadow: 0 0 0 var(--junta) var(--calc); }
+.cf-foto:only-child { grid-column: 1 / -1; }
+@media (max-width: 860px) {
+  .com-funciona { grid-template-columns: 1fr; }
+  .cf-fotos { margin-inline: calc(-1 * var(--vora)); }
+  .cf-foto-1 { grid-column: 1 / 10; height: 62vw; }
+  .cf-foto-2 { grid-column: 4 / -1; height: 42vw; margin-top: -12vw; }
+}
+.demo-servei { padding-top: 0; }
+.demo-servei .assistent { margin-top: 0; }
+
+/* ---------- altres serveis: una llista de noms, sense fotos ---------- */
+.altres { list-style: none; margin: var(--aire) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem var(--vora); max-width: 72rem; }
+.altre a { display: grid; gap: .15rem; text-decoration: none; padding-block: .35rem; }
+.altre-nom { font-weight: 650; font-size: var(--f-2); line-height: 1.1; letter-spacing: -.01em; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .18em; }
+.altre-linia { font-size: var(--f-0); }
+.altre a:hover .altre-nom, .altre a:focus-visible .altre-nom { text-decoration-thickness: 3px; }
+@media (max-width: 640px) { .altres { grid-template-columns: 1fr; } }
+
+/* ---------- del Pla: trencadís de fotos reals ---------- */
+.pla-fotos { padding-bottom: clamp(5rem, 12vh, 9rem); }
+.pla-text { max-width: 44rem; margin-bottom: clamp(2.5rem, 6vh, 4rem); }
+.pla-jo { display: flex; gap: 1rem; align-items: flex-start; margin: 1.75rem 0 0; font-size: var(--f-0); font-weight: 600; max-width: 48ch; }
+.pla-jo svg { width: 2rem; height: 2rem; flex: none; margin-top: .15rem; }
+.pla-peces { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--junta); }
+.pp { position: relative; margin: 0; overflow: hidden; height: min(34svh, 22vw); }
+.pp-foto { position: absolute; inset: 0; overflow: hidden; background: var(--blau); }
+.pp figcaption { position: absolute; left: .6rem; bottom: .6rem; z-index: 2; background: var(--calc); padding: .15rem .5rem .2rem; font-size: var(--f-peu); font-weight: 700; }
+.pp-1 { grid-column: 1 / 8; grid-row: 1 / 3; height: auto; min-height: min(70svh, 46vw); }
+.pp-2 { grid-column: 8 / -1; }
+.pp-3 { grid-column: 8 / 11; }
+.pp-4 { grid-column: 11 / -1; }
+.pp-5 { grid-column: 1 / 4; }
+.pp-6 { grid-column: 4 / 8; }
+.pp-7 { grid-column: 8 / -1; }
+.pp-8 { grid-column: 1 / 7; height: min(40svh, 26vw); }
+.pp-9 { grid-column: 7 / -1; height: min(40svh, 26vw); }
+/* el retrat ocupa la segona peça, en 4:5 */
+.pp.retrat { grid-row: 1 / 3; height: auto; aspect-ratio: 4 / 5; }
+@media (max-width: 760px) {
+  .pla-peces { grid-template-columns: 1fr 1fr; margin-inline: calc(-1 * var(--vora)); }
+  .pp { grid-column: auto; height: 42vw; }
+  .pp-1 { grid-column: 1 / -1; grid-row: auto; min-height: 0; height: 64vw; }
+  /* cinc fotos al mòbil: les altres no es baixen (director D18) */
+  .pp-6, .pp-7, .pp-8, .pp-9 { display: none; }
+}
+
+/* ---------- radiografia (torna quan hi hagi worker): el camp a tot l'ample (director D13) ---------- */
+.radiografia { display: grid; gap: 2rem; }
+.rg-form label { display: block; font-weight: 700; margin-bottom: .4rem; }
+.rg-fila { display: grid; gap: var(--junta); max-width: 34rem; }
+.rg-fila input { font: 500 var(--f-1) var(--lletra); padding: .8rem 1rem; border: 0; background: var(--blanc); color: var(--blau); box-shadow: inset 0 0 0 2px var(--blau); min-width: 0; }
+.rg-fila input::placeholder { color: #5A6699; }
+.rg-fila input[aria-invalid="true"] { box-shadow: inset 0 0 0 3px #B3261E; }
+.rg-fila .boto { border: 0; cursor: pointer; justify-self: start; }
+.rg-fila .boto:disabled { opacity: .7; cursor: wait; }
+.rg-error { margin: .6rem 0 0; font-weight: 700; color: #9C1F18; min-height: 1.5em; }
+.rg-enviada { margin: .6rem 0 0; font-weight: 700; min-height: 1.5em; }
+.rg-resultat[hidden] { display: none; }
+.rg-estat { margin: 0 0 1rem; font-size: var(--f-0); max-width: 52ch; }
+.rg-trencadis { display: grid; grid-template-columns: 3fr 2fr 2fr; gap: var(--junta); }
+.rg-peca { position: relative; padding: 1.1rem 1.25rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; min-height: 8rem; }
+.rg-peca .valor { font-weight: 800; font-stretch: var(--ample); font-size: var(--f-4); line-height: .9; letter-spacing: -.02em; }
+.rg-peca .nom { font-weight: 700; }
+.rg-peca.be { background: var(--verd); color: var(--calc); }
+.rg-peca.millorable, .rg-peca.malament { background: var(--rostoll); color: var(--blau); }
+.rg-peca.p5 { grid-column: 2 / 4; }
+.rg-troballes { list-style: none; margin: 1.75rem 0; padding: 0; display: grid; gap: .9rem; font-size: var(--f-0); max-width: 58ch; }
+.rg-troballes li { position: relative; padding-left: 1.6rem; }
+.rg-troballes li::before { content: ""; position: absolute; left: 0; top: .42em; width: .7em; height: .7em; rotate: 7deg; background: var(--verd); }
+.rg-troballes li.malament::before, .rg-troballes li.millorable::before { background: var(--rostoll); }
+@media (max-width: 860px) { .rg-trencadis { grid-template-columns: 1fr 1fr; } .rg-peca.p5 { grid-column: 1 / -1; } }
+
+/* ---------- 404: aquí falta una peça (director D22) ---------- */
+.error-404 { min-height: 100svh; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: center; gap: 2rem clamp(2rem, 5vw, 5rem); padding: 6rem var(--vora) 3rem; }
+.e404-mosaic .t { animation: none; }
+.e404-mosaic { margin-bottom: 4rem; }
+.forat { position: absolute; background: color-mix(in srgb, var(--mangan) 15%, var(--calc)); }
+.caiguda { position: absolute; background: var(--rostoll); rotate: -24deg; z-index: 2; }
+.e404-text h1 { font-size: var(--f-4); line-height: .95; letter-spacing: -.025em; font-weight: 800; font-stretch: var(--ample); margin: 0 0 1.25rem; }
+.e404-text p { font-size: var(--f-1); line-height: var(--li-entradeta); margin: 0 0 1rem; max-width: 34ch; }
+.e404-text .e404-enllacos { margin: 1.75rem 0 .5rem; }
+.e404-text .e404-es { font-size: var(--f-0); margin-top: 2rem; }
+.e404-wa, .e404-text a:not(.boto) { display: inline-block; padding-block: .6rem; font-weight: 700; }
+@media (max-width: 860px) { .error-404 { grid-template-columns: 1fr; padding-top: 5.5rem; } }
+
+/* ---------- peu: contacte, serveis i crèdits (director D21) ---------- */
+.peu { padding: clamp(3rem, 6vw, 5rem) var(--vora) 3rem; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 3fr) minmax(0, 5fr); gap: 2rem var(--vora); font-size: var(--f-0); }
+.peu p { margin: 0 0 .5rem; }
+.peu .marca { font-size: var(--f-marca); margin-bottom: 1rem; }
+.peu ul { list-style: none; margin: 0; padding: 0; }
+.peu-titol { font-weight: 700; }
+.peu-vies a, .peu-serveis a { display: inline-block; padding-block: .3rem; }
+.peu .legal { display: flex; flex-wrap: wrap; gap: 0 1.5rem; margin-top: 1rem; }
+.peu .legal a { display: inline-block; padding-block: .6rem; }
+.credits-plegats, .credits-sols { grid-column: 1 / -1; font-size: var(--f-peu); }
+.credits-plegats summary { cursor: pointer; font-weight: 700; list-style: none; display: inline-flex; align-items: center; gap: .6rem; padding-block: .6rem; font-size: var(--f-0); }
+.credits-plegats summary::-webkit-details-marker { display: none; }
+.credits-plegats p { margin-top: .75rem; }
+.credits { list-style: none; margin: 0; padding: 0; max-width: 90rem; columns: 2 24rem; column-gap: var(--vora); }
+.credits li { break-inside: avoid; margin-bottom: .35rem; }
+.credits a { text-decoration-thickness: 1px; }
+@media (max-width: 860px) { .peu { grid-template-columns: 1fr 1fr; } .peu > div:first-child { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .peu { grid-template-columns: 1fr; } }
+
+/* ---------- avís legal i privacitat ---------- */
+.legal-pagina { padding: clamp(7rem, 14vh, 9rem) var(--vora) 4rem; max-width: calc(46rem + 2 * var(--vora)); }
+.legal-pagina h1 { font-size: var(--f-4); line-height: .95; letter-spacing: -.02em; font-weight: 800; font-stretch: var(--ample); margin: 0 0 2rem; }
+.legal-text h2 { font-size: var(--f-2); font-weight: 650; margin: 2.25rem 0 .6rem; }
+.legal-text p { font-size: var(--f-0); margin: 0 0 1rem; max-width: 62ch; }
+.legal-text mark { background: var(--rostoll); color: var(--blau); padding: 0 .25rem; }
+
+/* ---------- accessibilitat: focus de ≥ 3:1 sobre verd, blau i rostoll ---------- */
+.fons-verd :focus-visible { outline-color: var(--calc); }
+.fons-rostoll :focus-visible { outline-color: var(--blau); }
+/* hero en mòbils baixos: el text no queda sota les peces */
+@media (max-width: 760px) and (max-height: 700px) {
+  .titular .sub { font-size: var(--f-0); margin-top: .9rem; }
+  .titular .accions { margin-top: 1rem; }
+}

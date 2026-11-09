@@ -1,0 +1,156 @@
+/* ============================================================
+   Bildane: base comuna
+   Idea: el Pla d'Urgell vist des de dalt és un mosaic. El canal i
+   les sèquies són les juntes; els camps, les peces. Trencadís del Pla
+   i trencadís català fets amb el mateix gest: tallar i encaixar.
+   Les pàgines carreguen a més assets/v2.css.
+   ============================================================ */
+
+/* Archivo (Omnibus-Type, SIL Open Font License): variable en gruix (100–900)
+   i en amplada (wdth 62–125), que es tria amb font-stretch. */
+@font-face {
+  font-family: "Archivo";
+  src: url("fonts/archivo-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("fonts/archivo-latin-ext.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* esmalts */
+  --calc: #F2F3EE;      /* calç: el fons i la junta */
+  --blanc: #FAFAF6;     /* esmalt blanc */
+  --blau: #1F3590;      /* blau de la marca: el text */
+  --verd: #0F6B4B;      /* verd ampolla */
+  --rostoll: #E0A13A;   /* rostoll de juliol */
+  --sequia: #3C9C98;    /* aigua de sèquia: només per a l'aigua */
+  --mangan: #2B1C22;    /* manganès */
+
+  --text: var(--blau);
+  --fons: var(--calc);
+
+  --lletra: "Archivo", "Arial", system-ui, sans-serif;
+  /* amplades d'Archivo: el text va a 100 %; els títols, amples; les paraules gegants, al màxim */
+  --ample: 115%;
+  --ample-gegant: 125%;
+  /* Escala tancada (recerca 1, director D12). Cap font-size fet a mà fora d'aquí,
+     tret de les paraules gegants, que es mesuren amb l'amplada de la secció.
+     Tres nivells de títol:
+       1. pòster: 800 / 115 %, --f-5 (h1, contacte) i --f-4 (títols de secció)
+       2. bloc:   650 / 100 %, --f-2 (noms de servei, preguntes, passos)
+       3. text:   400 / 100 %, --f-0 (i --f-1 per a les entradetes) */
+  --f-peu: .875rem;                                   /* 14: peus de foto, avisos */
+  --f-etiqueta: 1rem;                                 /* 16: botons petits i etiquetes (600, sense majúscules) */
+  --f-marca: 1.35rem;                                 /* el logo de la capçalera i del peu */
+  --f-0: 1.125rem;                                    /* 18: text */
+  --f-1: clamp(1.25rem, 1.05rem + .55vw, 1.625rem);   /* 20–26: entradetes */
+  --f-2: clamp(1.5rem, 1.15rem + 1vw, 2rem);          /* 24–32: títols de bloc */
+  --f-4: clamp(2.5rem, 1.2rem + 3.6vw, 4.5rem);       /* 40–72: títols de secció */
+  --f-3: var(--f-4);
+  --f-5: clamp(2.5rem, .6rem + 7vw, 7.5rem);          /* 40–120: pòster */
+  /* interlineats segons la mida */
+  --li-text: 1.5;
+  --li-entradeta: 1.3;
+  --li-titol: .98;
+  /* aire vertical: un sol pas que es multiplica */
+  --aire: clamp(1.5rem, 1rem + 1.6vw, 2.5rem);
+  /* moviment: una sola corba i durades curtes (recerca 3) */
+  --corba: cubic-bezier(.2, .7, .2, 1);
+
+  /* marge lateral: creix fins a 3.5rem i, a pantalles grans, centra el contingut a 90rem */
+  --vora: max(clamp(1rem, 4vw, 3.5rem), calc((100vw - 90rem) / 2));
+  --junta: 6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fons);
+  color: var(--text);
+  font-family: var(--lletra);
+  font-size: var(--f-0);
+  line-height: var(--li-text);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { display: block; max-width: 100%; }
+/* un sol gest per als enllaços de text: el subratllat s'engreixa (recerca 3) */
+a { color: inherit; text-decoration-thickness: 1.5px; text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: 3px; }
+@media (prefers-reduced-motion: no-preference) { a { transition: text-decoration-thickness .15s var(--corba); } }
+
+:focus-visible {
+  outline: 3px solid var(--blau);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.sobre-fosc :focus-visible { outline-color: var(--rostoll); }
+
+.salt {
+  position: absolute; left: var(--vora); top: -100px;
+  background: var(--rostoll); color: var(--mangan);
+  padding: .6rem 1rem; font-weight: 700; z-index: 60;
+}
+.salt:focus { top: .75rem; }
+
+.marca {
+  display: inline-flex; align-items: baseline; gap: .4rem;
+  font-weight: 800; font-stretch: var(--ample); font-size: 1.55rem; letter-spacing: -.02em;
+  text-decoration: none; line-height: 1;
+}
+.marca svg { width: 1.15em; height: 1.15em; flex: none; }
+
+/* ---------- botons ---------- */
+.boto {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--rostoll); color: var(--blau);
+  font: 700 var(--f-1)/1 var(--lletra);
+  padding: 1rem 1.4rem 1.05rem;
+  text-decoration: none;
+  /* una rajola tallada a mà: cap angle és recte del tot */
+  clip-path: polygon(0 4%, 99% 0, 100% 93%, 1.5% 100%);
+}
+.boto:hover { background: #EAB257; color: var(--blau); }
+/* el clip-path retalla el contorn, així que el focus inverteix la peça */
+.boto:focus-visible { outline: none; background: var(--blau); color: var(--calc); text-decoration: underline; }
+.sobre-fosc .boto:focus-visible { background: var(--calc); color: var(--blau); }
+
+/* ---------- el mosaic ---------- */
+.mosaic { position: relative; }
+.mosaic .t { position: absolute; background: var(--c, var(--blau)); }
+.mosaic .t-foto { background: var(--blau); }
+.mosaic .t-foto img { width: 100%; height: 100%; object-fit: cover; }
+/* gra: unifica fotos de llocs diferents com si fossin el mateix esmalt */
+.gra::after, .mosaic .t-foto::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: url("gra.png");
+  mix-blend-mode: soft-light; opacity: .35;
+}
+.mosaic .fita { position: absolute; translate: -50% -50%; }
+.mosaic .lloc {
+  position: absolute; margin: 0; translate: 1.7rem -50%;
+  font-weight: 700; font-size: var(--f-peu); line-height: 1.3;
+  background: var(--calc); padding: .1rem .45rem .15rem; white-space: nowrap;
+}
+
+/* ---------- peces tallades a mà ----------
+   Cap peça és un rectangle perfecte: cada cantonada es desvia una mica. */
+.peca { clip-path: polygon(.5% .9%, 99.6% 0, 100% 99.1%, 0 100%); }
+.peca-2 { clip-path: polygon(0 0, 99.3% .7%, 99.8% 100%, .6% 99.3%); }
+.peca-3 { clip-path: polygon(.7% 0, 100% 1%, 99.3% 99.5%, 0 99.8%); }
+
+.visualment-amagat {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}

@@ -1,0 +1,223 @@
+{
+  "canal-boira": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "canal-mollerussa": {
+    "amplades": [
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "pla-tempesta": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.7778
+  },
+  "planol-1890": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1
+  },
+  "planol-detall": {
+    "amplades": [
+      800
+    ],
+    "proporcio": 1.3086
+  },
+  "estany-ivars": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "mercat-roba": {
+    "amplades": [
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "mercat": {
+    "amplades": [
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "mollerussa-aire": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.7778
+  },
+  "tractor": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.5
+  },
+  "caixes-pressecs": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.6667
+  },
+  "calaix-tipus": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.5
+  },
+  "canal-bicis": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "comandes": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.5056
+  },
+  "comporta-sequia": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "comportes": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "forn-pizza": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.5
+  },
+  "picaportes": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.4484
+  },
+  "porxos-balaguer": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "queviures": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "retol-tarrega": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 0.75
+  },
+  "terrassa-placa": {
+    "amplades": [
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "boira-estany": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.7778
+  },
+  "torregrossa-aire": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  },
+  "perers-flor": {
+    "amplades": [
+      2400,
+      1600,
+      800
+    ],
+    "proporcio": 1.5
+  },
+  "albara-1969": {
+    "amplades": [
+      1600,
+      800
+    ],
+    "proporcio": 2.3222
+  },
+  "nau-miralcamp": {
+    "amplades": [
+      800
+    ],
+    "proporcio": 0.9195
+  },
+  "telefon-paret": {
+    "amplades": [
+      1600,
+      800
+    ],
+    "proporcio": 0.7799
+  },
+  "tractor-fordson": {
+    "amplades": [
+      1600,
+      800
+    ],
+    "proporcio": 1.3333
+  }
+}

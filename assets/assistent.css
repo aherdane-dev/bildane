@@ -1,0 +1,67 @@
+/* Assistent de la Pizzeria del Pla. Només la conversa té alçada fixa. */
+.assistent {
+  grid-column: 1 / -1; margin: clamp(5rem, 12vh, 9rem) calc(-1 * var(--vora)) 0;
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr); gap: 2rem clamp(1.5rem, 3vw, 3rem); align-items: start;
+  background: var(--blau); color: var(--calc); padding: clamp(3rem, 8vh, 5rem) var(--vora);
+  clip-path: polygon(0 1.5%, 100% 0, 100% 98.5%, 0 100%);
+}
+.as-cap :is(h2, h3) { font-size: var(--f-4); line-height: .95; letter-spacing: -.025em; font-weight: 800; font-stretch: var(--ample); margin: 0 0 1.5rem; }
+.as-cap p { font-size: var(--f-1); line-height: var(--li-entradeta); max-width: 30ch; margin: 0 0 1rem; }
+.as-cap .as-nota { font-size: var(--f-0); }
+.as-trucada { background: var(--calc); color: var(--blau); display: flex; flex-direction: column; min-width: 0; }
+.as-estat { display: flex; align-items: center; gap: .6rem; padding: .9rem 1.25rem; font-weight: 700; border-bottom: var(--junta) solid var(--blau); }
+/* el rellotge només surt quan la trucada de prova ja ha començat (detector IA30) */
+.rellotge { margin-left: auto; font-variant-numeric: tabular-nums; }
+.rellotge[hidden] { display: none; }
+/* sense buit: la conversa creix amb els missatges i els botons queden just a sota (director D7) */
+.as-conversa { list-style: none; margin: 0; padding: 1.25rem 1.25rem .75rem; overflow-y: auto; display: grid; gap: .6rem; align-content: start; min-height: 12rem; max-height: clamp(14rem, 100svh - 23rem, 30rem); }
+.as-msg { max-width: 85%; padding: .7rem 1rem .8rem; font-size: var(--f-0); line-height: 1.35; overflow-wrap: anywhere; }
+.as-msg .qui { display: block; font-size: var(--f-peu); font-weight: 700; margin-bottom: .15rem; }
+.as-msg.a { background: var(--blau); color: var(--calc); justify-self: start; clip-path: polygon(0 3%, 100% 0, 99% 100%, 1% 97%); }
+.as-msg.c { background: var(--rostoll); justify-self: end; clip-path: polygon(1% 0, 100% 4%, 99% 96%, 0 100%); }
+.as-msg.pensant { background: none; padding-left: 0; }
+.pensant .qui { display: none; }
+.as-msg.avis { background: var(--blanc); box-shadow: inset 0 0 0 2px var(--blau); clip-path: none; }
+.as-opcions { display: flex; flex-wrap: wrap; gap: .5rem; padding: .25rem 1.25rem 1.25rem; }
+.as-opcions:empty { display: none; }
+.as-opcions button {
+  font: 700 var(--f-0)/1.2 var(--lletra); background: var(--blanc);
+  min-height: 48px; padding: .6rem 1rem; box-shadow: inset 0 0 0 2px var(--blau); clip-path: polygon(0 7%, 100% 0, 97% 100%, 2% 93%);
+}
+.as-opcions button:nth-child(even) { clip-path: polygon(2% 0, 100% 9%, 98% 92%, 0 100%); }
+.as-opcions button:hover { background: var(--rostoll); }
+.as-opcions button:focus-visible { background: var(--blau); color: var(--calc); outline: 3px solid var(--rostoll); outline-offset: -6px; }
+.as-escriu { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: var(--junta); padding: var(--junta); background: var(--blau); }
+.as-escriu input { font: inherit; font-size: var(--f-0); padding: .9rem 1rem; border: 0; background: var(--blanc); color: var(--blau); min-width: 0; }
+.as-escriu input::placeholder { color: #5A6699; }
+:is(.as-escriu input, .as-conversa):focus-visible { outline: 3px solid var(--blau); outline-offset: -3px; }
+.as-opcions button, .as-envia, .as-mic, .as-reinicia { border: 0; cursor: pointer; color: var(--blau); }
+.as-envia, .as-mic { font: 700 var(--f-etiqueta)/1 var(--lletra); padding: 0 1.1rem; background: var(--rostoll); }
+.as-mic { width: 3.4rem; display: grid; place-items: center; padding: 0; background: var(--verd); color: var(--calc); }
+.as-mic[hidden] { display: none; }
+.as-mic svg { width: 1.5rem; height: 1.5rem; }
+.as-mic[aria-pressed=true] { background: var(--rostoll); color: var(--blau); }
+:is(.as-envia, .as-mic):focus-visible { outline: 3px solid var(--calc); outline-offset: -5px; }
+/* sobre rostoll, el contorn calç no arriba a 3:1 (1,9:1): blau, 4,7:1 (QA v3) */
+:is(.as-envia, .as-mic[aria-pressed=true]):focus-visible { outline-color: var(--blau); }
+.as-envia[aria-disabled=true], .as-opcions[aria-busy=true] button { opacity: .6; cursor: wait; }
+.as-privacitat { margin: 0; padding: .75rem 1rem .9rem; font-size: var(--f-peu); line-height: 1.45; background: var(--blau); color: var(--calc); }
+.as-comanda { background: var(--blanc); color: var(--blau); padding: 1.75rem 1.75rem 2rem; position: sticky; top: 6rem; clip-path: polygon(0 1%, 100% 0, 99.5% 100%, .5% 98.5%); }
+.as-comanda :is(h3, h4) { margin: 0 0 1rem; font-size: var(--f-2); font-weight: 650; display: flex; align-items: center; gap: .6rem; }
+.as-comanda :is(h3, h4) svg { width: 1.1em; height: 1.1em; flex: none; }
+.as-comanda :is(dl, .buida) { margin: 0; }
+.as-comanda dl { display: grid; gap: .9rem; }
+.as-comanda dl:empty, .as-comanda dl:not(:empty) + .buida { display: none; }
+.buida p { margin: 0 0 1rem; }
+/* el tiquet fantasma: el que s'hi apuntarà, amb línies de punts (director D7) */
+.as-fantasma { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; opacity: .4; }
+.as-fantasma li { display: flex; align-items: baseline; gap: .6rem; font-size: var(--f-peu); font-weight: 700; }
+.as-fantasma li::after { content: ""; flex: 1; border-bottom: 3px dotted currentColor; }
+.as-comanda dt { font-size: var(--f-peu); color: var(--verd); font-weight: 700; }
+.as-comanda dd { margin: 0; font-size: var(--f-1); font-weight: 700; overflow-wrap: anywhere; }
+.as-reinicia { margin-top: 1.5rem; font: 700 var(--f-0) var(--lletra); background: none; padding: 0; text-decoration: underline; text-underline-offset: .18em; }
+@media (prefers-reduced-motion: no-preference) { .as-opcions button { transition: background-color .15s; } }
+/* Resum de la comanda sota el xat, només quan el tiquet queda fora de la vista (mòbil). */
+.as-resum { display: none; margin: 0; padding: .6rem 1.25rem; background: var(--blanc); border-top: 2px solid var(--blau); font-weight: 700; line-height: 1.3; }
+@media (max-width: 960px) { .assistent { grid-template-columns: 1fr; } .as-comanda { position: relative; top: 0; min-height: 8rem; } .as-resum:not([hidden]) { display: block; } }
+@media (max-width: 760px) { .as-conversa { min-height: 9rem; } .as-opcions { padding-inline: 1rem; } }

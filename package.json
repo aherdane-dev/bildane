@@ -1,0 +1,17 @@
+{
+  "name": "bildane-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "descarrega": "node _eines/descarrega.mjs",
+    "fotos": "node _eines/fotos.mjs",
+    "web": "node _eines/construeix.mjs",
+    "servidor": "node _eines/servidor.mjs 8130",
+    "revisa": "node _eines/revisa.mjs"
+  },
+  "devDependencies": {
+    "lenis": "^1.1.13",
+    "playwright": "^1.48.2",
+    "sharp": "0.33.5"
+  }
+}

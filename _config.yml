@@ -1,0 +1,9 @@
+# GitHub Pages: es publica la web tal com és, sense plantilles de Jekyll.
+# Les carpetes que comencen per «_» (eines, disseny, fotos) no es publiquen mai.
+# Aquests fitxers tampoc: són del repositori, no de la web.
+exclude:
+  - CREDITOS.md
+  - package.json
+  - package-lock.json
+  - node_modules
+  - vendor

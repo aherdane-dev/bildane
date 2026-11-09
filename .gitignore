@@ -1,0 +1,11 @@
+node_modules/
+_fotos/originals/
+_disseny/previs/
+_fotos/mapa-mtn-sencer.jpg
+_fotos/retirades/
+
+# Notes internes de disseny i de l'equip: es queden a l'ordinador, no van a GitHub (el repo és públic).
+# Només es publiquen les proves de la demo.
+_disseny/*
+!_disseny/proves/
+.claude/
