@@ -432,6 +432,15 @@ function negoci(t) {
   };
 }
 
+// Icones (es generen amb _eines/icones.mjs): ico i svg per a la pestanya, PNG per a Google i el mòbil, i el manifest.
+const ICONES = `<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">`;
+
 function document_({ t, titol, descripcio, ruta, rutes, jsonld, cos, imatge = '/og.png', indexable = true }) {
   return `<!doctype html>
 <html lang="${t.lang}">
@@ -455,9 +464,7 @@ function document_({ t, titol, descripcio, ruta, rutes, jsonld, cos, imatge = '/
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+${ICONES}
 <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/bildane.css">
 <link rel="stylesheet" href="/assets/v2.css">${cos.includes('class="assistent"') ? '\n<link rel="stylesheet" href="/assets/assistent.css">\n<script src="/assets/assistent.js" defer></script>' : ''}
@@ -624,7 +631,7 @@ function pagina404() {
 <title>Aquí falta una peça | Bildane</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#F2F3EE">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+${ICONES}
 <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/bildane.css">
 <link rel="stylesheet" href="/assets/v2.css">
