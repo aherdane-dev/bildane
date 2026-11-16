@@ -1,18 +1,8 @@
-// Favicons (fita de rostoll sobre blau) i og.png (1200×630).
+// og.png (1200×630). Els favicons i les icones es fan amb _eines/icones.mjs.
 // node _eines/imatges-marca.mjs   (cal el servidor local a http://localhost:8130)
 import fs from 'node:fs';
-import sharp from 'sharp';
 import { chromium } from 'playwright';
 import { mosaic, pinta, html, fita } from './mosaic.mjs';
-
-// ---------- favicons ----------
-const fitaSvg = fita({ mida: null, color: '#E0A13A', junta: 'none', gruix: 0 })
-  .replace('<svg ', '<svg x="0" y="0" width="100" height="100" ');
-const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="18" fill="#1F3590"/><g transform="translate(14 14) scale(.72)">${fitaSvg.replace(' aria-hidden="true" focusable="false"', '')}</g></svg>`;
-fs.writeFileSync('favicon.svg', favicon);
-for (const [nom, mida] of [['favicon-32.png', 32], ['favicon-96.png', 96], ['apple-touch-icon.png', 180], ['icon-512.png', 512]]) {
-  await sharp(Buffer.from(favicon), { density: 72 * mida / 100 * 4 }).resize(mida, mida).png().toFile(nom);
-}
 
 // ---------- og.png ----------
 const w = 700, h = 700, poble = [400, 380];
