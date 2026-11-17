@@ -88,10 +88,6 @@
 .com-llista a:hover, .com-llista a:focus-visible { background: var(--blanc); clip-path: polygon(.4% 0, 100% 6%, 99.7% 100%, 0 94%); }
 .com-llista a:hover .com-ll-nom, .com-llista a:focus-visible .com-ll-nom { text-decoration-thickness: 3px; }
 
-/* ---------- peu: les comarques ---------- */
-.peu-comarques { grid-column: 1 / -1; }
-.peu-comarques ul { display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
-.peu-comarques a { display: inline-block; padding-block: .3rem; }
 
 @media (max-width: 860px) {
   .com-cap { grid-template-columns: minmax(0, 1fr); }

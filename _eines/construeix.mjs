@@ -407,10 +407,7 @@ function peu(t) {
     <p class="peu-titol">${t.serveisTitol}</p>
     <ul>${SERVEIS.map(s => `<li><a href="${s.ruta[t.lang]}">${s[t.lang].nom}</a></li>`).join('')}</ul>
   </nav>
-  <nav class="peu-comarques" aria-label="${UI_COM[t.lang].index}">
-    <p class="peu-titol"><a href="${RUTA_INDEX[t.lang]}">${UI_COM[t.lang].index}</a></p>
-    <ul>${COMARQUES.map(c => `<li><a href="${rutaComarca(c, t.lang)}">${c.nom[t.lang]}</a></li>`).join('')}</ul>
-  </nav>
+  <p class="peu-comarques"><a href="${RUTA_INDEX[t.lang]}">${UI_COM[t.lang].index}</a></p>
   ${files.length ? '' : `<p class="credits-sols">${p.lletra}</p>`}<details class="credits-plegats"${files.length ? '' : ' hidden'}>
     <summary>${t.legal.creditsResum} (${files.length}) <span class="creu" aria-hidden="true"></span></summary>
     <p>${p.nota}</p>

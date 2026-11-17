@@ -189,7 +189,7 @@ export const ES = {
         `El Parc Nacional d'Aigüestortes i Estany de Sant Maurici, declarado el 21 de octubre de 1955, se extiende por cuatro comarcas; el Pallars Sobirà es una de ellas, y Espot es uno de los dos municipios donde está la zona interna del parque${x.cita('aiguestortes')}. Idescat cuenta además ${x.n('hotels')} hoteles (${x.n('placesHotels')} plazas) y ${x.n('turismeRural')} alojamientos de turismo rural (${x.n('placesTurismeRural')}): ${x.places()} plazas para ${x.n('poblacio')} habitantes${x.cita('idescat_poblacio')}.`,
       ] },
       { titol: 'En remoto', p: [
-        `Trabajo en remoto; si hace falta una visita, mejor entre abril y noviembre. Un camping recibe cada día las mismas preguntas (tarifas, condiciones, cómo llegar): ${x.s('xat', 'un asistente de chat')} las responde por ti.`,
+        `Trabajo en remoto. Un camping recibe cada día las mismas preguntas (tarifas, condiciones, cómo llegar): ${x.s('xat', 'un asistente de chat')} las responde por ti.`,
       ] },
     ],
     wa: 'Hola Bilal, tengo un negocio en el Pallars Sobirà y quisiera hablar contigo.',
