@@ -1,0 +1,104 @@
+/* ============================================================
+   On treballo: l'índex amb el mapa i una pàgina per comarca.
+   Només es carrega a aquestes pàgines (construeix.mjs). Mateixes variables que la resta de la web.
+   ============================================================ */
+
+/* ---------- capçalera de pàgina: text a l'esquerra, mapa i distància a la dreta ---------- */
+.com-cap { padding-top: clamp(5.5rem, 12vh, 7.5rem); padding-bottom: clamp(2.5rem, 6vh, 4rem); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 1.25rem var(--vora); align-items: start; }
+.com-cap-index { grid-template-columns: minmax(0, 1fr); }
+.com-cap .tornar { grid-column: 1 / -1; justify-self: start; font-weight: 700; padding-block: .6rem; margin-bottom: .25rem; }
+.com-etiqueta { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 0 0 1rem; font-weight: 700; font-size: var(--f-etiqueta); }
+.com-mode { display: inline-block; padding: .35rem .8rem .4rem; clip-path: polygon(1% 6%, 100% 0, 99% 100%, 0 94%); }
+.com-mode-persona { background: var(--blau); color: var(--calc); }
+.com-mode-remot { background: var(--blanc); box-shadow: inset 0 0 0 2px var(--blau); }
+.com-titulars h1 { font-size: min(var(--f-4), 10vw); line-height: var(--li-titol); letter-spacing: -.02em; font-weight: 800; font-stretch: var(--ample); margin: 0 0 1.25rem; max-width: 16ch; text-wrap: balance; overflow-wrap: anywhere; }
+.com-cap-index .com-titulars h1 { font-size: min(var(--f-5), 14vw); max-width: none; }
+.com-titulars .entradeta { font-size: var(--f-1); line-height: var(--li-entradeta); max-width: 38ch; margin: 0 0 1.5rem; }
+.com-titulars .accions { margin: 1.5rem 0 .75rem; }
+.com-titulars .nota-boto, .com-titulars .nota-correu { margin: 0 0 .35rem; }
+
+.com-fitxa { display: grid; gap: 1.25rem; justify-items: start; }
+.com-fitxa .mapa-mini { width: min(100%, 17rem); }
+.com-dist { margin: 0; display: grid; gap: .5rem; }
+.com-dist dt { font-weight: 600; font-size: var(--f-0); }
+.com-dist dd { margin: 0; font-size: var(--f-1); line-height: 1.2; }
+.com-dist strong { font-weight: 800; font-stretch: var(--ample); }
+
+.com-destacat { margin: 0; display: grid; gap: .15rem; max-width: 20rem; }
+.com-destacat strong { font-size: var(--f-4); line-height: .95; font-weight: 800; font-stretch: var(--ample); letter-spacing: -.02em; }
+.com-destacat span { font-size: var(--f-0); line-height: 1.35; }
+
+/* ---------- el text: títol a l'esquerra, paràgrafs a la dreta, sense caixes ---------- */
+.com-text { padding-block: clamp(3rem, 8vh, 6rem); display: grid; gap: clamp(2.5rem, 7vh, 5rem); }
+.com-bloc { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 1rem var(--vora); align-items: start; }
+.com-bloc h2 { font-size: var(--f-2); line-height: 1.1; letter-spacing: -.01em; font-weight: 800; font-stretch: var(--ample); margin: 0; text-wrap: balance; }
+.com-par p { margin: 0 0 1rem; max-width: 62ch; line-height: var(--li-text); }
+.com-par p:last-child { margin-bottom: 0; }
+.com-par a { text-underline-offset: .18em; }
+/* la nota numerada: petita, sense subratllar, perquè no trenqui la línia */
+.nota { font-size: .72em; line-height: 0; margin-left: .1em; }
+.nota a { text-decoration: none; font-weight: 700; padding-inline: .1em; }
+.nota a:hover, .nota a:focus-visible { text-decoration: underline; }
+
+/* ---------- altres comarques i fonts ---------- */
+.com-altres { padding-top: clamp(3rem, 8vh, 5rem); padding-bottom: clamp(3rem, 8vh, 5rem); }
+.com-fonts { padding-block: clamp(3rem, 8vh, 5rem); }
+.com-fonts .seccio-titol { font-size: var(--f-2); margin-bottom: .5rem; }
+.com-fonts .seccio-intro { font-size: var(--f-0); max-width: 60ch; }
+.com-fonts-llista { margin: var(--aire) 0 0; padding-left: 1.6rem; display: grid; gap: .65rem; font-size: var(--f-0); max-width: 76ch; }
+.com-fonts-llista li { scroll-margin-top: 6rem; padding-left: .3rem; line-height: 1.45; }
+.com-fonts-llista li:target { background: var(--calc); outline: 3px solid var(--blau); outline-offset: 4px; }
+.font-torna { display: inline-block; text-decoration: none; font-weight: 700; padding: .35rem .6rem; margin-left: .2rem; }
+
+/* ---------- el mapa ---------- */
+.mapa { display: block; width: 100%; height: auto; }
+.mapa .peca { stroke: var(--calc); stroke-width: 4; stroke-linejoin: round; transition: fill .2s var(--corba); }
+.mapa .peca-persona { fill: var(--blau); }
+.mapa .peca-remot, .mapa .peca-altra { fill: var(--blanc); stroke: var(--blau); stroke-width: 2.5; }
+.mapa .peca-actual { fill: var(--rostoll); stroke: var(--blau); stroke-width: 3; }
+.mapa a { cursor: pointer; }
+.mapa a:hover .peca, .mapa a:focus-visible .peca { fill: var(--rostoll); }
+.mapa a:focus-visible { outline: none; }
+.mapa a:focus-visible .peca { stroke: var(--mangan); stroke-width: 8; }
+.mapa .etiqueta { font-family: var(--lletra); font-weight: 800; font-stretch: var(--ample); font-size: 26px; fill: var(--calc); pointer-events: none; }
+.mapa .peca-remot + .etiqueta, .mapa a:hover .etiqueta, .mapa a:focus-visible .etiqueta { fill: var(--blau); }
+.mapa .etiqueta-petita { font-size: 19px; }
+.mapa .etiqueta-mini { font-size: 14px; }
+.mapa .etiqueta { paint-order: stroke; stroke: var(--calc); stroke-width: 0; }
+.mapa .peca-persona + .etiqueta { stroke: var(--blau); stroke-width: 4px; stroke-linejoin: round; }
+.mapa .peca-remot + .etiqueta { stroke: var(--blanc); stroke-width: 4px; stroke-linejoin: round; }
+.mapa .mollerussa polygon { fill: var(--rostoll); stroke: var(--blau); stroke-width: 2; stroke-linejoin: miter; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .mapa .peca { transition: none; } }
+
+.com-mapa-sec { padding-top: 0; padding-bottom: clamp(3rem, 8vh, 6rem); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem var(--vora); align-items: start; }
+.com-mapa-fig { display: grid; gap: 1rem; }
+.com-mapa-fig .mapa-gran { max-width: 34rem; }
+.com-legenda { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; font-size: var(--f-0); }
+.com-legenda li { display: flex; align-items: center; gap: .6rem; }
+.peca-mostra { flex: none; width: 1.4rem; height: 1rem; clip-path: polygon(0 8%, 100% 0, 96% 100%, 4% 92%); }
+.peca-mostra.peca-persona { background: var(--blau); }
+.peca-mostra.peca-remot { background: var(--blanc); box-shadow: inset 0 0 0 2px var(--blau); }
+.mostra-fita { flex: none; width: 1.4rem; display: inline-flex; justify-content: center; }
+.com-llistes { display: grid; gap: 2rem; }
+.com-llistes h3 { font-size: var(--f-2); line-height: 1.1; font-weight: 800; font-stretch: var(--ample); margin: 0 0 .75rem; }
+.com-llista { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; }
+.com-llista a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .15rem 1rem; align-items: baseline; padding: .55rem .75rem; margin-inline: -.75rem; text-decoration: none; min-height: 44px; }
+.com-ll-nom { font-weight: 650; font-size: var(--f-1); line-height: 1.15; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .18em; }
+.com-ll-dist { font-size: var(--f-0); text-align: right; }
+.com-llista a:hover, .com-llista a:focus-visible { background: var(--blanc); clip-path: polygon(.4% 0, 100% 6%, 99.7% 100%, 0 94%); }
+.com-llista a:hover .com-ll-nom, .com-llista a:focus-visible .com-ll-nom { text-decoration-thickness: 3px; }
+
+
+@media (max-width: 860px) {
+  .com-cap { grid-template-columns: minmax(0, 1fr); }
+  .com-bloc { grid-template-columns: minmax(0, 1fr); }
+  .com-mapa-sec { grid-template-columns: minmax(0, 1fr); }
+  .com-fitxa .mapa-mini { width: min(100%, 15rem); }
+  .com-ll-dist { text-align: left; grid-column: 1; }
+  .com-llista a { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  /* al mòbil el mapa es veu petit: només les etiquetes de les peces grans, la llista ja diu tots els noms */
+  .mapa .etiqueta { font-size: 34px; }
+  .mapa .etiqueta-petita { display: none; }
+}

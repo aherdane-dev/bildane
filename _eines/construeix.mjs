@@ -11,6 +11,10 @@ import { PAGINES } from './textos-serveis.mjs';
 import { ENDPOINTS, LEGAL } from './config.mjs';
 import { assistent as assistentHtml } from './assistent.mjs';
 import { vinyeta } from './vinyetes.mjs';
+import { COMARQUES, PER_ID, RUTA_INDEX, rutaComarca, UI as UI_COM, contextDe, fontsInfo, kmRodo, minRodo } from './comarques.mjs';
+import { CA as TEXT_CA, INDEX_CA } from './textos-comarques-ca.mjs';
+import { ES as TEXT_ES, INDEX_ES } from './textos-comarques-es.mjs';
+import { mapa } from './mapa-svg.mjs';
 const assistent = (t, nivell) => assistentHtml(t.lang, nivell, ENDPOINTS.assistent);
 
 // El retrat d'en Bilal (director D3). Encara no n'hi ha cap: no s'hi posa cap foto de banc,
@@ -203,6 +207,7 @@ function capcalera(t, altraRuta, aquesta, v = veu(t)) {
     <li><a href="${t.inici}#feines">${t.feinesTitol}</a></li>
     <li><a href="${t.inici}#com-treballo">${t.passosTitol}</a></li>
     ${ENDPOINTS.radiografia ? `<li><a href="${t.inici}#radiografia">${t.radiografiaMenu}</a></li>\n    ` : ''}<li><a href="${t.inici}#preguntes">${t.faqTitol}</a></li>
+    <li><a href="${RUTA_INDEX[t.lang]}">${UI_COM[t.lang].index}</a></li>
     <li><a href="${t.inici}#contacte">${t.contacte.menu}</a></li>
   </ul>
 </nav>`;
@@ -402,6 +407,7 @@ function peu(t) {
     <p class="peu-titol">${t.serveisTitol}</p>
     <ul>${SERVEIS.map(s => `<li><a href="${s.ruta[t.lang]}">${s[t.lang].nom}</a></li>`).join('')}</ul>
   </nav>
+  <p class="peu-comarques"><a href="${RUTA_INDEX[t.lang]}">${UI_COM[t.lang].index}</a></p>
   ${files.length ? '' : `<p class="credits-sols">${p.lletra}</p>`}<details class="credits-plegats"${files.length ? '' : ' hidden'}>
     <summary>${t.legal.creditsResum} (${files.length}) <span class="creu" aria-hidden="true"></span></summary>
     <p>${p.nota}</p>
@@ -420,13 +426,13 @@ const RUTES_LEGALS = {
 
 function negoci(t) {
   return {
-    '@type': 'ProfessionalService', '@id': `${URL_WEB}/#negoci`, name: 'Bildane',
+    '@type': ['ProfessionalService', 'LocalBusiness'], '@id': `${URL_WEB}/#negoci`, name: 'Bildane',
     url: `${URL_WEB}${t.inici}`, description: t.descripcio, image: `${URL_WEB}/og.png`, logo: `${URL_WEB}/icon-512.png`,
     email: 'hola@bildane.com', telephone: '+34643844107', priceRange: '€',
     founder: { '@type': 'Person', name: 'Bilal' },
     address: { '@type': 'PostalAddress', addressLocality: 'Mollerussa', postalCode: '25230', addressRegion: 'Lleida', addressCountry: 'ES' },
     geo: { '@type': 'GeoCoordinates', latitude: 41.6311, longitude: 0.8939 },
-    areaServed: [{ '@type': 'City', name: 'Mollerussa' }, { '@type': 'AdministrativeArea', name: "Pla d'Urgell" }, { '@type': 'AdministrativeArea', name: 'Lleida' }, { '@type': 'AdministrativeArea', name: 'Catalunya' }],
+    areaServed: [{ '@type': 'City', name: 'Mollerussa' }, ...COMARQUES.filter(c => c.mode === 'persona').map(c => ({ '@type': 'AdministrativeArea', name: c.nom.ca })), { '@type': 'AdministrativeArea', name: 'Lleida' }, { '@type': 'AdministrativeArea', name: 'Catalunya' }],
     knowsLanguage: ['ca', 'es'],
     hasOfferCatalog: { '@type': 'OfferCatalog', name: t.serveisTitol, itemListElement: SERVEIS.map(s => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s[t.lang].nom } })) },
   };
@@ -468,7 +474,7 @@ ${ICONES}
 <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/bildane.css">
 <link rel="stylesheet" href="/assets/v2.css">${cos.includes('class="assistent"') ? '\n<link rel="stylesheet" href="/assets/assistent.css">\n<script src="/assets/assistent.js" defer></script>' : ''}
-<script src="/assets/v2.js" defer></script>
+${cos.includes('class="com-') ? '<link rel="stylesheet" href="/assets/comarques.css">\n' : ''}<script src="/assets/v2.js" defer></script>
 ${jsonld.length ? `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': jsonld })}</script>` : ''}
 </head>
 <body>
@@ -591,7 +597,7 @@ ${contacte(t, v)}
   const servei = {
     '@type': 'Service', '@id': `${URL_WEB}${ruta}#servei`, name: x.nom, description: p.descripcio, url: `${URL_WEB}${ruta}`,
     serviceType: x.nom, provider: { '@id': `${URL_WEB}/#negoci` }, inLanguage: lang,
-    areaServed: [{ '@type': 'City', name: 'Mollerussa' }, { '@type': 'AdministrativeArea', name: "Pla d'Urgell" }],
+    areaServed: [{ '@type': 'City', name: 'Mollerussa' }, ...COMARQUES.filter(c => c.mode === 'persona').map(c => ({ '@type': 'AdministrativeArea', name: c.nom.ca }))],
   };
   const molles = {
     '@type': 'BreadcrumbList', itemListElement: [
@@ -734,6 +740,131 @@ function paginaLegal(quina, lang) {
   return document_({ t, titol: `${d.titol} | Bildane`, descripcio: `${d.titol}. Bildane, Mollerussa.`, ruta, rutes: RUTES_LEGALS[quina], jsonld: [], cos, indexable: false });
 }
 
+// ---------- On treballo: l'índex i una pàgina per comarca ----------
+// Dades i textos: comarques.mjs, textos-comarques-ca.mjs i textos-comarques-es.mjs.
+const TEXTOS_COMARCA = { ca: TEXT_CA, es: TEXT_ES };
+const INDEX_COMARQUES = { ca: INDEX_CA, es: INDEX_ES };
+const nomCap = (c, lang) => (lang === 'es' && c.capEs) || c.cap;
+const fontsLlista = (fonts, lang) => fonts.map((f, i) => `
+      <li id="font-${i + 1}"><a href="${f.url}">${esc(f.titol)}</a>. ${esc(f.editor)}${f.periode ? `, ${esc(f.periode)}` : ''}.${f.nota ? ` ${esc(f.nota)}` : ''}${f.usos ? ` <a class="font-torna" href="#ref-${i + 1}-1" aria-label="${lang === 'ca' ? 'Torna al text' : 'Volver al texto'}">↑</a>` : ''}</li>`).join('');
+const seccioFonts = (fonts, lang) => `
+  <section class="capitol fons-blanc com-fonts" aria-labelledby="t-fonts">
+    <h2 class="seccio-titol" id="t-fonts">${UI_COM[lang].fonts}</h2>
+    <p class="seccio-intro">${UI_COM[lang].fontsIntro}</p>
+    <ol class="com-fonts-llista">${fontsLlista(fonts, lang)}
+    </ol>
+  </section>`;
+const dadesMapa = (lang) => COMARQUES.map(c => ({ id: c.id, nom: c.nom[lang], ruta: rutaComarca(c, lang), mode: c.mode }));
+const areaServida = (c, lang) => ({ '@type': 'AdministrativeArea', name: c.nom[lang], containedInPlace: { '@type': 'AdministrativeArea', name: c.id === 'cerdanya' ? 'Catalunya' : 'Lleida' } });
+
+function paginaComarca(c, lang) {
+  const t = T[lang], u = UI_COM[lang], ruta = rutaComarca(c, lang), nom = c.nom[lang];
+  usades = new Set();
+  const x = contextDe(c.id, lang, SERVEIS);
+  const marcaOsrm = c.km === 0 ? '' : x.cita('osrm');   // la distància és la primera nota; després, les del text
+  const txt = TEXTOS_COMARCA[lang][c.id](x);
+  const v = { ...veu(t), wa: txt.wa };
+  const cap = nomCap(c, lang), proper = c.veines.map(id => PER_ID[id]);
+  const mode = c.mode === 'persona' ? u.enPersona : u.remot;
+  const dist = c.km === 0
+    ? `<div><dt>${lang === 'ca' ? 'On visc' : 'Dónde vivo'}</dt><dd><strong>Mollerussa</strong>, ${lang === 'ca' ? 'dins la comarca' : 'dentro de la comarca'}</dd></div>`
+    : `<div><dt>${u.desDe} ${lang === 'ca' ? cap.replace(/^el /, 'al ').replace(/^els /, 'als ').replace(/^(la|les) /, 'a $1 ').replace(/^([^a].*)$/, m => (/^(al|als|a ) /.test(m) ? m : 'a ' + m)) : 'a ' + cap}</dt><dd><strong>${kmRodo(c.km)} ${u.km}</strong> · ${minRodo(c.min)} ${u.min} ${u.enCotxe}${marcaOsrm}</dd></div>`;
+  const cos = `${capcalera(t, rutaComarca(c, t.altraLang), ruta, v)}
+<main id="inici">
+  <section class="capitol fons-calc com-cap" aria-labelledby="t-com">
+    <a class="tornar" href="${RUTA_INDEX[lang]}">← ${u.tornar}</a>
+    <div class="com-titulars">
+      <p class="com-etiqueta"><span class="com-mode com-mode-${c.mode}">${mode}</span> ${nom}</p>
+      <h1 id="t-com">${txt.titol}</h1>
+      <p class="entradeta">${txt.entradeta}</p>
+      <div class="accions"><a class="boto" href="${whatsapp(t, v.wa)}">${v.boto}</a></div>
+      ${notes(v)}
+    </div>
+    <div class="com-fitxa">
+      ${mapa(dadesMapa(lang), { actual: c.id, etiquetes: false, enllacos: false, mini: true, titol: u.mapaMini(nom), descripcio: u.mapaDescripcio, classe: 'mapa-mini' })}
+      <dl class="com-dist">${dist}</dl>${txt.destacat ? `
+      <p class="com-destacat"><strong>${txt.destacat.valor}</strong> <span>${txt.destacat.text}</span></p>` : ''}
+    </div>
+  </section>
+  <section class="capitol fons-calc com-text">${txt.blocs.map((b, i) => `
+    <article class="com-bloc" aria-labelledby="com-b${i}">
+      <h2 id="com-b${i}">${b.titol}</h2>
+      <div class="com-par">${b.p.map(par => `<p>${par}</p>`).join('\n        ')}</div>
+    </article>`).join('')}
+  </section>
+${contacte(t, v)}
+  <section class="capitol fons-calc altres-serveis com-altres" aria-labelledby="t-altres">
+    <h2 class="seccio-titol" id="t-altres">${u.altres}</h2>
+    <ul class="altres">${proper.map(o => `
+      <li class="altre"><a href="${rutaComarca(o, lang)}"><span class="altre-nom">${o.nom[lang]}</span> <span class="altre-linia">${o.mode === 'persona' ? u.enPersona : u.remot}</span></a></li>`).join('')}
+    </ul>
+  </section>
+${seccioFonts(x.notes, lang)}
+</main>`;
+  const pagina = { '@type': 'WebPage', '@id': `${URL_WEB}${ruta}#pagina`, url: `${URL_WEB}${ruta}`, name: txt.seoTitol, description: txt.seoDescripcio, inLanguage: lang, about: areaServida(c, lang), isPartOf: { '@id': `${URL_WEB}/#negoci` } };
+  const molles = { '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Bildane', item: `${URL_WEB}${t.inici}` },
+    { '@type': 'ListItem', position: 2, name: u.index, item: `${URL_WEB}${RUTA_INDEX[lang]}` },
+    { '@type': 'ListItem', position: 3, name: nom, item: `${URL_WEB}${ruta}` },
+  ] };
+  const negociComarca = { ...negoci(t), areaServed: [areaServida(c, lang)], description: txt.seoDescripcio };
+  return document_({ t, titol: `${txt.seoTitol} | Bildane`, descripcio: txt.seoDescripcio, ruta, rutes: { ca: rutaComarca(c, 'ca'), es: rutaComarca(c, 'es') }, jsonld: [negociComarca, pagina, molles], cos });
+}
+
+function paginaIndexComarques(lang) {
+  const t = T[lang], u = UI_COM[lang], ruta = RUTA_INDEX[lang], txt = INDEX_COMARQUES[lang];
+  usades = new Set();
+  const v = veu(t);
+  const llista = mode => COMARQUES.filter(c => c.mode === mode).map(c => `
+        <li><a href="${rutaComarca(c, lang)}"><span class="com-ll-nom">${c.nom[lang]}</span><span class="com-ll-dist">${nomCap(c, lang)}${c.km ? ` · ${kmRodo(c.km)} ${u.km} · ${minRodo(c.min)} ${u.min}` : ''}</span></a></li>`).join('');
+  const fonts = ['osrm', 'icgc'].map(k => ({ clau: k, usos: 0, ...fontsInfo('pla-urgell', k, lang) }));
+  const cos = `${capcalera(t, RUTA_INDEX[t.altraLang], ruta, v)}
+<main id="inici">
+  <section class="capitol fons-calc com-cap com-cap-index" aria-labelledby="t-com">
+    <div class="com-titulars">
+      <p class="com-etiqueta">${lang === 'ca' ? '13 comarques' : '13 comarcas'}</p>
+      <h1 id="t-com">${txt.titol}</h1>
+      <p class="entradeta">${txt.entradeta}</p>
+      <div class="accions"><a class="boto" href="${whatsapp(t, v.wa)}">${v.boto}</a></div>
+      ${notes(v)}
+    </div>
+  </section>
+  <section class="capitol fons-calc com-mapa-sec" aria-labelledby="t-mapa">
+    <h2 class="visualment-amagat" id="t-mapa">${u.mapaTitol}</h2>
+    <div class="com-mapa-fig">
+      ${mapa(dadesMapa(lang), { titol: u.mapaTitol, descripcio: u.mapaDescripcio, classe: 'mapa-gran' })}
+      <ul class="com-legenda">
+        <li><span class="peca-mostra peca-persona" aria-hidden="true"></span>${u.legendaPersona}</li>
+        <li><span class="peca-mostra peca-remot" aria-hidden="true"></span>${u.legendaRemot}</li>
+        <li><span class="mostra-fita" aria-hidden="true">${fita({ mida: '1.1em', color: 'var(--rostoll)', junta: 'var(--blau)', gruix: .12 })}</span>${u.legendaFita}</li>
+      </ul>
+    </div>
+    <div class="com-llistes">
+      <div><h3>${u.enPersona}</h3><ul class="com-llista">${llista('persona')}
+      </ul></div>
+      <div><h3>${u.remot}</h3><ul class="com-llista">${llista('remot')}
+      </ul></div>
+    </div>
+  </section>
+  <section class="capitol fons-calc com-text">${txt.blocs.map((b, i) => `
+    <article class="com-bloc" aria-labelledby="com-b${i}">
+      <h2 id="com-b${i}">${b.titol}</h2>
+      <div class="com-par">${b.p.map(par => `<p>${par}</p>`).join('\n        ')}</div>
+    </article>`).join('')}
+  </section>
+${contacte(t, v)}
+${seccioFonts(fonts, lang)}
+</main>`;
+  const pagina = { '@type': 'CollectionPage', '@id': `${URL_WEB}${ruta}#pagina`, url: `${URL_WEB}${ruta}`, name: txt.seoTitol, description: txt.seoDescripcio, inLanguage: lang, isPartOf: { '@id': `${URL_WEB}/#negoci` },
+    hasPart: COMARQUES.map(c => ({ '@type': 'WebPage', name: c.nom[lang], url: `${URL_WEB}${rutaComarca(c, lang)}` })) };
+  const molles = { '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Bildane', item: `${URL_WEB}${t.inici}` },
+    { '@type': 'ListItem', position: 2, name: u.index, item: `${URL_WEB}${ruta}` },
+  ] };
+  const negociIndex = { ...negoci(t), areaServed: COMARQUES.map(c => areaServida(c, lang)), description: txt.seoDescripcio };
+  return document_({ t, titol: txt.seoTitol, descripcio: txt.seoDescripcio, ruta, rutes: RUTA_INDEX, jsonld: [negociIndex, pagina, molles], cos });
+}
+
 // ---------- escriptura ----------
 const escriu = (fitxer, contingut) => { fs.mkdirSync(path.dirname(fitxer), { recursive: true }); fs.writeFileSync(fitxer, contingut); };
 for (const lang of ['ca', 'es']) {
@@ -742,9 +873,13 @@ for (const lang of ['ca', 'es']) {
     escriu(`.${s.ruta[lang]}index.html`, paginaServei(s, lang));
   }
 }
+for (const lang of ['ca', 'es']) {
+  escriu(`.${RUTA_INDEX[lang]}index.html`, paginaIndexComarques(lang));
+  for (const com of COMARQUES) escriu(`.${rutaComarca(com, lang)}index.html`, paginaComarca(com, lang));
+}
 escriu('404.html', pagina404());
 for (const quina of ['avis', 'privacitat']) for (const lang of ['ca', 'es']) escriu(`.${RUTES_LEGALS[quina][lang]}index.html`, paginaLegal(quina, lang));
-const parelles = [{ ca: '/', es: '/es/' }, ...SERVEIS.filter(s => s.pagina).map(s => s.ruta)];
+const parelles = [{ ca: '/', es: '/es/' }, ...SERVEIS.filter(s => s.pagina).map(s => s.ruta), RUTA_INDEX, ...COMARQUES.map(c => ({ ca: rutaComarca(c, 'ca'), es: rutaComarca(c, 'es') }))];
 escriu('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${parelles.flatMap(p => ['ca', 'es'].map(l => `  <url>

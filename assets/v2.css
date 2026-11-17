@@ -511,6 +511,8 @@ details[open] > summary .creu::after { scale: 1 0; }
 .peu ul { list-style: none; margin: 0; padding: 0; }
 .peu-titol { font-weight: 700; }
 .peu-vies a, .peu-serveis a { display: inline-block; padding-block: .3rem; }
+.peu-comarques { grid-column: 1 / -1; font-weight: 700; }
+.peu-comarques a { display: inline-block; padding-block: .3rem; }
 .peu .legal { display: flex; flex-wrap: wrap; gap: 0 1.5rem; margin-top: 1rem; }
 .peu .legal a { display: inline-block; padding-block: .6rem; }
 .credits-plegats, .credits-sols { grid-column: 1 / -1; font-size: var(--f-peu); }

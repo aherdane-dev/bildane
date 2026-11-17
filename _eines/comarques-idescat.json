@@ -1,0 +1,2034 @@
+{
+ "_font": "Idescat, API pública (api.idescat.cat)",
+ "_baixat": "2026-11-16",
+ "comarques": {
+  "pla-urgell": {
+   "codi": "27",
+   "dades": {
+    "superficie": 305.14,
+    "cat_superficie": 32107.98,
+    "densitat": 126.3,
+    "cat_densitat": 253,
+    "poblacio": 38529,
+    "cat_poblacio": 8124126,
+    "afAgricultura": 405,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 5135,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 1020,
+    "cat_afConstruccio": 173425,
+    "afServeis": 6850,
+    "cat_afServeis": 2630950,
+    "afTotal": 13410,
+    "cat_afTotal": 3296690,
+    "sau": 25279,
+    "cat_sau": 1092215,
+    "cereals": 12565,
+    "cat_cereals": 360408,
+    "fruiters": 4502,
+    "cat_fruiters": 106030,
+    "oliveres": 173,
+    "cat_oliveres": 100123,
+    "vinya": 1,
+    "cat_vinya": 59533,
+    "bovins": 13628,
+    "cat_bovins": 676097,
+    "ovins": 2041,
+    "cat_ovins": 488771,
+    "porcins": 433767,
+    "cat_porcins": 8192796,
+    "aviram": 3070620,
+    "cat_aviram": 42544012,
+    "hotels": 7,
+    "cat_hotels": 3182,
+    "placesHotels": 221,
+    "cat_placesHotels": 331853,
+    "campings": 0,
+    "cat_campings": 351,
+    "placesCampings": 0,
+    "cat_placesCampings": 267507,
+    "turismeRural": 13,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 131,
+    "cat_placesTurismeRural": 23002
+   },
+   "fonts": {
+    "superficie": {
+     "periode": "",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:27",
+     "font": ""
+    },
+    "densitat": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:27",
+     "font": ""
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:27",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    },
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:27",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:27",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:27",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:27",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:27",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "sau": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16059&geo=com:27",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "cereals": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:27",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "fruiters": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:27",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "oliveres": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:27",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "vinya": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:27",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "bovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:27",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "ovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:27",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "porcins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:27",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "aviram": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:27",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:27",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:27",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:27",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:27",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:27",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:27",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    }
+   }
+  },
+  "urgell": {
+   "codi": "38",
+   "dades": {
+    "superficie": 579.66,
+    "cat_superficie": 32107.98,
+    "densitat": 67.8,
+    "cat_densitat": 253,
+    "poblacio": 39294,
+    "cat_poblacio": 8124126,
+    "afAgricultura": 365,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 3735,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 725,
+    "cat_afConstruccio": 173425,
+    "afServeis": 7255,
+    "cat_afServeis": 2630950,
+    "afTotal": 12080,
+    "cat_afTotal": 3296690,
+    "sau": 43131,
+    "cat_sau": 1092215,
+    "cereals": 26239,
+    "cat_cereals": 360408,
+    "fruiters": 4525,
+    "cat_fruiters": 106030,
+    "oliveres": 2918,
+    "cat_oliveres": 100123,
+    "vinya": 1366,
+    "cat_vinya": 59533,
+    "bovins": 14708,
+    "cat_bovins": 676097,
+    "ovins": 7246,
+    "cat_ovins": 488771,
+    "porcins": 475287,
+    "cat_porcins": 8192796,
+    "aviram": 1972327,
+    "cat_aviram": 42544012,
+    "hotels": 8,
+    "cat_hotels": 3182,
+    "placesHotels": 371,
+    "cat_placesHotels": 331853,
+    "campings": 0,
+    "cat_campings": 351,
+    "placesCampings": 0,
+    "cat_placesCampings": 267507,
+    "turismeRural": 32,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 289,
+    "cat_placesTurismeRural": 23002
+   },
+   "fonts": {
+    "superficie": {
+     "periode": "",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:38",
+     "font": ""
+    },
+    "densitat": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:38",
+     "font": ""
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:38",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    },
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:38",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:38",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:38",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:38",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:38",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "sau": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16059&geo=com:38",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "cereals": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:38",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "fruiters": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:38",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "oliveres": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:38",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "vinya": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:38",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "bovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:38",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "ovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:38",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "porcins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:38",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "aviram": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:38",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:38",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:38",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:38",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:38",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:38",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:38",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    }
+   }
+  },
+  "segria": {
+   "codi": "33",
+   "dades": {
+    "superficie": 1396.66,
+    "cat_superficie": 32107.98,
+    "densitat": 158.7,
+    "cat_densitat": 253,
+    "poblacio": 221630,
+    "cat_poblacio": 8124126,
+    "afAgricultura": 2030,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 8690,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 7110,
+    "cat_afConstruccio": 173425,
+    "afServeis": 82950,
+    "cat_afServeis": 2630950,
+    "afTotal": 100780,
+    "cat_afTotal": 3296690,
+    "sau": 95162,
+    "cat_sau": 1092215,
+    "cereals": 29191,
+    "cat_cereals": 360408,
+    "fruiters": 34211,
+    "cat_fruiters": 106030,
+    "oliveres": 10396,
+    "cat_oliveres": 100123,
+    "vinya": 2037,
+    "cat_vinya": 59533,
+    "bovins": 103535,
+    "cat_bovins": 676097,
+    "ovins": 29291,
+    "cat_ovins": 488771,
+    "porcins": 1347873,
+    "cat_porcins": 8192796,
+    "aviram": 4436459,
+    "cat_aviram": 42544012,
+    "hotels": 34,
+    "cat_hotels": 3182,
+    "placesHotels": 3024,
+    "cat_placesHotels": 331853,
+    "campings": 1,
+    "cat_campings": 351,
+    "placesCampings": 111,
+    "cat_placesCampings": 267507,
+    "turismeRural": 15,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 118,
+    "cat_placesTurismeRural": 23002
+   },
+   "fonts": {
+    "superficie": {
+     "periode": "",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:33",
+     "font": ""
+    },
+    "densitat": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:33",
+     "font": ""
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:33",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    },
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:33",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:33",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:33",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:33",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:33",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "sau": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16059&geo=com:33",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "cereals": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:33",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "fruiters": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:33",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "oliveres": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:33",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "vinya": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:33",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "bovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:33",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "ovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:33",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "porcins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:33",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "aviram": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:33",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:33",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:33",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:33",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:33",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:33",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:33",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    }
+   }
+  },
+  "noguera": {
+   "codi": "23",
+   "dades": {
+    "superficie": 1784.07,
+    "cat_superficie": 32107.98,
+    "densitat": 22.4,
+    "cat_densitat": 253,
+    "poblacio": 39957,
+    "cat_poblacio": 8124126,
+    "afAgricultura": 780,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 1915,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 1045,
+    "cat_afConstruccio": 173425,
+    "afServeis": 5655,
+    "cat_afServeis": 2630950,
+    "afTotal": 9395,
+    "cat_afTotal": 3296690,
+    "sau": 73595,
+    "cat_sau": 1092215,
+    "cereals": 49567,
+    "cat_cereals": 360408,
+    "fruiters": 5384,
+    "cat_fruiters": 106030,
+    "oliveres": 1658,
+    "cat_oliveres": 100123,
+    "vinya": 405,
+    "cat_vinya": 59533,
+    "bovins": 47814,
+    "cat_bovins": 676097,
+    "ovins": 27137,
+    "cat_ovins": 488771,
+    "porcins": 1135009,
+    "cat_porcins": 8192796,
+    "aviram": 4837268,
+    "cat_aviram": 42544012,
+    "hotels": 25,
+    "cat_hotels": 3182,
+    "placesHotels": 674,
+    "cat_placesHotels": 331853,
+    "campings": 4,
+    "cat_campings": 351,
+    "placesCampings": 1575,
+    "cat_placesCampings": 267507,
+    "turismeRural": 67,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 588,
+    "cat_placesTurismeRural": 23002
+   },
+   "fonts": {
+    "superficie": {
+     "periode": "",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:23",
+     "font": ""
+    },
+    "densitat": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:23",
+     "font": ""
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:23",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    },
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:23",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:23",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:23",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:23",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:23",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "sau": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16059&geo=com:23",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "cereals": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:23",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "fruiters": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:23",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "oliveres": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:23",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "vinya": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:23",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "bovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:23",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "ovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:23",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "porcins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:23",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "aviram": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:23",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:23",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:23",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:23",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:23",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:23",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:23",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    }
+   }
+  },
+  "garrigues": {
+   "codi": "18",
+   "dades": {
+    "superficie": 797.7,
+    "cat_superficie": 32107.98,
+    "densitat": 24.2,
+    "cat_densitat": 253,
+    "poblacio": 19268,
+    "cat_poblacio": 8124126,
+    "afAgricultura": 375,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 1120,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 320,
+    "cat_afConstruccio": 173425,
+    "afServeis": 2145,
+    "cat_afServeis": 2630950,
+    "afTotal": 3960,
+    "cat_afTotal": 3296690,
+    "sau": 39718,
+    "cat_sau": 1092215,
+    "cereals": 7084,
+    "cat_cereals": 360408,
+    "fruiters": 8113,
+    "cat_fruiters": 106030,
+    "oliveres": 19058,
+    "cat_oliveres": 100123,
+    "vinya": 754,
+    "cat_vinya": 59533,
+    "bovins": 19110,
+    "cat_bovins": 676097,
+    "ovins": 11460,
+    "cat_ovins": 488771,
+    "porcins": 393347,
+    "cat_porcins": 8192796,
+    "aviram": 3482648,
+    "cat_aviram": 42544012,
+    "hotels": 7,
+    "cat_hotels": 3182,
+    "placesHotels": 92,
+    "cat_placesHotels": 331853,
+    "campings": 0,
+    "cat_campings": 351,
+    "placesCampings": 0,
+    "cat_placesCampings": 267507,
+    "turismeRural": 10,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 95,
+    "cat_placesTurismeRural": 23002
+   },
+   "fonts": {
+    "superficie": {
+     "periode": "",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:18",
+     "font": ""
+    },
+    "densitat": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:18",
+     "font": ""
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:18",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    },
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:18",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:18",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:18",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:18",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:18",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "sau": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16059&geo=com:18",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "cereals": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:18",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "fruiters": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:18",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "oliveres": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:18",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "vinya": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:18",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "bovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:18",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "ovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:18",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "porcins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:18",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "aviram": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:18",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:18",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:18",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:18",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:18",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:18",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:18",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    }
+   }
+  },
+  "segarra": {
+   "codi": "32",
+   "dades": {
+    "afAgricultura": 350,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 6755,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 255,
+    "cat_afConstruccio": 173425,
+    "afServeis": 2980,
+    "cat_afServeis": 2630950,
+    "afTotal": 10340,
+    "cat_afTotal": 3296690,
+    "hotels": 8,
+    "cat_hotels": 3182,
+    "placesHotels": 209,
+    "cat_placesHotels": 331853,
+    "campings": 0,
+    "cat_campings": 351,
+    "placesCampings": 0,
+    "cat_placesCampings": 267507,
+    "turismeRural": 42,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 316,
+    "cat_placesTurismeRural": 23002,
+    "poblacio": 22853
+   },
+   "fonts": {
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:32",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:32",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:32",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:32",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:32",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:32",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:32",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:32",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:32",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:32",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:32",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:32",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    }
+   }
+  },
+  "solsones": {
+   "codi": "35",
+   "dades": {
+    "afAgricultura": 210,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 1050,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 405,
+    "cat_afConstruccio": 173425,
+    "afServeis": 2910,
+    "cat_afServeis": 2630950,
+    "afTotal": 4575,
+    "cat_afTotal": 3296690,
+    "hotels": 27,
+    "cat_hotels": 3182,
+    "placesHotels": 768,
+    "cat_placesHotels": 331853,
+    "campings": 6,
+    "cat_campings": 351,
+    "placesCampings": 2319,
+    "cat_placesCampings": 267507,
+    "turismeRural": 146,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 1081,
+    "cat_placesTurismeRural": 23002,
+    "poblacio": 15578
+   },
+   "fonts": {
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:35",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:35",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:35",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:35",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:35",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:35",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:35",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:35",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:35",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:35",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:35",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:35",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    }
+   }
+  },
+  "alt-urgell": {
+   "codi": "04",
+   "dades": {
+    "superficie": 1447.46,
+    "cat_superficie": 32107.98,
+    "densitat": 14.8,
+    "cat_densitat": 253,
+    "poblacio": 21477,
+    "cat_poblacio": 8124126,
+    "afAgricultura": 170,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 845,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 500,
+    "cat_afConstruccio": 173425,
+    "afServeis": 3520,
+    "cat_afServeis": 2630950,
+    "afTotal": 5035,
+    "cat_afTotal": 3296690,
+    "sau": 27535,
+    "cat_sau": 1092215,
+    "cereals": 2930,
+    "cat_cereals": 360408,
+    "fruiters": 37,
+    "cat_fruiters": 106030,
+    "oliveres": 61,
+    "cat_oliveres": 100123,
+    "vinya": 9,
+    "cat_vinya": 59533,
+    "bovins": 26682,
+    "cat_bovins": 676097,
+    "ovins": 18454,
+    "cat_ovins": 488771,
+    "porcins": 40486,
+    "cat_porcins": 8192796,
+    "aviram": 411506,
+    "cat_aviram": 42544012,
+    "hotels": 44,
+    "cat_hotels": 3182,
+    "placesHotels": 1554,
+    "cat_placesHotels": 331853,
+    "campings": 8,
+    "cat_campings": 351,
+    "placesCampings": 2625,
+    "cat_placesCampings": 267507,
+    "turismeRural": 99,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 693,
+    "cat_placesTurismeRural": 23002
+   },
+   "fonts": {
+    "superficie": {
+     "periode": "",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:04",
+     "font": ""
+    },
+    "densitat": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:04",
+     "font": ""
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:04",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    },
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:04",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:04",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:04",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:04",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:04",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "sau": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16059&geo=com:04",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "cereals": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:04",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "fruiters": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:04",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "oliveres": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:04",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "vinya": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:04",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "bovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:04",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "ovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:04",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "porcins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:04",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "aviram": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:04",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:04",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:04",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:04",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:04",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:04",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:04",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    }
+   }
+  },
+  "pallars-jussa": {
+   "codi": "25",
+   "dades": {
+    "superficie": 1343.09,
+    "cat_superficie": 32107.98,
+    "densitat": 10.1,
+    "cat_densitat": 253,
+    "poblacio": 13593,
+    "cat_poblacio": 8124126,
+    "afAgricultura": 140,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 200,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 405,
+    "cat_afConstruccio": 173425,
+    "afServeis": 3260,
+    "cat_afServeis": 2630950,
+    "afTotal": 4005,
+    "cat_afTotal": 3296690,
+    "sau": 39228,
+    "cat_sau": 1092215,
+    "cereals": 9695,
+    "cat_cereals": 360408,
+    "fruiters": 1502,
+    "cat_fruiters": 106030,
+    "oliveres": 722,
+    "cat_oliveres": 100123,
+    "vinya": 159,
+    "cat_vinya": 59533,
+    "bovins": 13619,
+    "cat_bovins": 676097,
+    "ovins": 41447,
+    "cat_ovins": 488771,
+    "porcins": 151237,
+    "cat_porcins": 8192796,
+    "aviram": 395841,
+    "cat_aviram": 42544012,
+    "hotels": 18,
+    "cat_hotels": 3182,
+    "placesHotels": 706,
+    "cat_placesHotels": 331853,
+    "campings": 6,
+    "cat_campings": 351,
+    "placesCampings": 1824,
+    "cat_placesCampings": 267507,
+    "turismeRural": 66,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 569,
+    "cat_placesTurismeRural": 23002
+   },
+   "fonts": {
+    "superficie": {
+     "periode": "",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:25",
+     "font": ""
+    },
+    "densitat": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:25",
+     "font": ""
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:25",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    },
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:25",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:25",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:25",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:25",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:25",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "sau": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16059&geo=com:25",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "cereals": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:25",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "fruiters": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:25",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "oliveres": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:25",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "vinya": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:25",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "bovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:25",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "ovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:25",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "porcins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:25",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "aviram": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:25",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:25",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:25",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:25",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:25",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:25",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:25",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    }
+   }
+  },
+  "pallars-sobira": {
+   "codi": "26",
+   "dades": {
+    "superficie": 1377.92,
+    "cat_superficie": 32107.98,
+    "densitat": 5.3,
+    "cat_densitat": 253,
+    "poblacio": 7332,
+    "cat_poblacio": 8124126,
+    "afAgricultura": 15,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 85,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 180,
+    "cat_afConstruccio": 173425,
+    "afServeis": 1250,
+    "cat_afServeis": 2630950,
+    "afTotal": 1530,
+    "cat_afTotal": 3296690,
+    "sau": 54464,
+    "cat_sau": 1092215,
+    "cereals": 410,
+    "cat_cereals": 360408,
+    "fruiters": 46,
+    "cat_fruiters": 106030,
+    "oliveres": 26,
+    "cat_oliveres": 100123,
+    "vinya": 15,
+    "cat_vinya": 59533,
+    "bovins": 17603,
+    "cat_bovins": 676097,
+    "ovins": 27016,
+    "cat_ovins": 488771,
+    "porcins": 9584,
+    "cat_porcins": 8192796,
+    "aviram": 204300,
+    "cat_aviram": 42544012,
+    "hotels": 59,
+    "cat_hotels": 3182,
+    "placesHotels": 2819,
+    "cat_placesHotels": 331853,
+    "campings": 22,
+    "cat_campings": 351,
+    "placesCampings": 7842,
+    "cat_placesCampings": 267507,
+    "turismeRural": 104,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 717,
+    "cat_placesTurismeRural": 23002
+   },
+   "fonts": {
+    "superficie": {
+     "periode": "",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:26",
+     "font": ""
+    },
+    "densitat": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:26",
+     "font": ""
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:26",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    },
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:26",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:26",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:26",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:26",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:26",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "sau": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16059&geo=com:26",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "cereals": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:26",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "fruiters": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:26",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "oliveres": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:26",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "vinya": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:26",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "bovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:26",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "ovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:26",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "porcins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:26",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "aviram": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:26",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:26",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:26",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:26",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:26",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:26",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:26",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    }
+   }
+  },
+  "alta-ribagorca": {
+   "codi": "05",
+   "dades": {
+    "superficie": 426.86,
+    "cat_superficie": 32107.98,
+    "densitat": 9.5,
+    "cat_densitat": 253,
+    "poblacio": 4051,
+    "cat_poblacio": 8124126,
+    "afAgricultura": 5,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 50,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 140,
+    "cat_afConstruccio": 173425,
+    "afServeis": 710,
+    "cat_afServeis": 2630950,
+    "afTotal": 905,
+    "cat_afTotal": 3296690,
+    "sau": 10095,
+    "cat_sau": 1092215,
+    "cereals": 33,
+    "cat_cereals": 360408,
+    "fruiters": 12,
+    "cat_fruiters": 106030,
+    "oliveres": 0,
+    "cat_oliveres": 100123,
+    "vinya": 0,
+    "cat_vinya": 59533,
+    "bovins": 2851,
+    "cat_bovins": 676097,
+    "ovins": 12439,
+    "cat_ovins": 488771,
+    "porcins": 2570,
+    "cat_porcins": 8192796,
+    "aviram": 29,
+    "cat_aviram": 42544012,
+    "hotels": 46,
+    "cat_hotels": 3182,
+    "placesHotels": 1790,
+    "cat_placesHotels": 331853,
+    "campings": 5,
+    "cat_campings": 351,
+    "placesCampings": 1080,
+    "cat_placesCampings": 267507,
+    "turismeRural": 74,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 433,
+    "cat_placesTurismeRural": 23002
+   },
+   "fonts": {
+    "superficie": {
+     "periode": "",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:05",
+     "font": ""
+    },
+    "densitat": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:05",
+     "font": ""
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:05",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    },
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:05",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:05",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:05",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:05",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:05",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "sau": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16059&geo=com:05",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "cereals": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:05",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "fruiters": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:05",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "oliveres": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:05",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "vinya": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:05",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "bovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:05",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "ovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:05",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "porcins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:05",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "aviram": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:05",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:05",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:05",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:05",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:05",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:05",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:05",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    }
+   }
+  },
+  "aran": {
+   "codi": "39",
+   "dades": {
+    "superficie": 633.6,
+    "cat_superficie": 32107.98,
+    "densitat": 16.8,
+    "cat_densitat": 253,
+    "poblacio": 10651,
+    "cat_poblacio": 8124126,
+    "afAgricultura": 10,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 100,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 585,
+    "cat_afConstruccio": 173425,
+    "afServeis": 2545,
+    "cat_afServeis": 2630950,
+    "afTotal": 3235,
+    "cat_afTotal": 3296690,
+    "sau": 31466,
+    "cat_sau": 1092215,
+    "cereals": 813,
+    "cat_cereals": 360408,
+    "fruiters": 131,
+    "cat_fruiters": 106030,
+    "oliveres": 50,
+    "cat_oliveres": 100123,
+    "vinya": 0,
+    "cat_vinya": 59533,
+    "bovins": 52675,
+    "cat_bovins": 676097,
+    "ovins": 10701,
+    "cat_ovins": 488771,
+    "porcins": 45172,
+    "cat_porcins": 8192796,
+    "aviram": 124084,
+    "cat_aviram": 42544012,
+    "hotels": 101,
+    "cat_hotels": 3182,
+    "placesHotels": 7500,
+    "cat_placesHotels": 331853,
+    "campings": 8,
+    "cat_campings": 351,
+    "placesCampings": 2985,
+    "cat_placesCampings": 267507,
+    "turismeRural": 25,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 288,
+    "cat_placesTurismeRural": 23002
+   },
+   "fonts": {
+    "superficie": {
+     "periode": "",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:39",
+     "font": ""
+    },
+    "densitat": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:39",
+     "font": ""
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:39",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    },
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:39",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:39",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:39",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:39",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:39",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "sau": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16059&geo=com:39",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "cereals": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:39",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "fruiters": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:39",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "oliveres": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:39",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "vinya": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:39",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "bovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:39",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "ovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:39",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "porcins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:39",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "aviram": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:39",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:39",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:39",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:39",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:39",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:39",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:39",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    }
+   }
+  },
+  "cerdanya": {
+   "codi": "15",
+   "dades": {
+    "superficie": 546.69,
+    "cat_superficie": 32107.98,
+    "densitat": 36.8,
+    "cat_densitat": 253,
+    "poblacio": 20111,
+    "cat_poblacio": 8124126,
+    "afAgricultura": 25,
+    "cat_afAgricultura": 12310,
+    "afIndustria": 255,
+    "cat_afIndustria": 480000,
+    "afConstruccio": 890,
+    "cat_afConstruccio": 173425,
+    "afServeis": 4345,
+    "cat_afServeis": 2630950,
+    "afTotal": 5520,
+    "cat_afTotal": 3296690,
+    "sau": 32276,
+    "cat_sau": 1092215,
+    "cereals": 1872,
+    "cat_cereals": 360408,
+    "fruiters": 21,
+    "cat_fruiters": 106030,
+    "oliveres": 5,
+    "cat_oliveres": 100123,
+    "vinya": 2,
+    "cat_vinya": 59533,
+    "bovins": 14749,
+    "cat_bovins": 676097,
+    "ovins": 6581,
+    "cat_ovins": 488771,
+    "porcins": 906,
+    "cat_porcins": 8192796,
+    "aviram": 2046,
+    "cat_aviram": 42544012,
+    "hotels": 63,
+    "cat_hotels": 3182,
+    "placesHotels": 3292,
+    "cat_placesHotels": 331853,
+    "campings": 7,
+    "cat_campings": 351,
+    "placesCampings": 4524,
+    "cat_placesCampings": 267507,
+    "turismeRural": 69,
+    "cat_turismeRural": 2773,
+    "placesTurismeRural": 526,
+    "cat_placesTurismeRural": 23002
+   },
+   "fonts": {
+    "superficie": {
+     "periode": "",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:15",
+     "font": ""
+    },
+    "densitat": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=inddt&n=396&geo=com:15",
+     "font": ""
+    },
+    "poblacio": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=censph&n=539&geo=com:15",
+     "font": "Idescat, a partir del Cens de població anual de l'INE."
+    },
+    "afAgricultura": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:15",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afIndustria": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:15",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afConstruccio": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:15",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afServeis": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:15",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "afTotal": {
+     "periode": "09/2026 (p)",
+     "enllac": "https://www.idescat.cat/pub/?id=afic&n=14983&geo=com:15",
+     "font": "Idescat, a partir dels fitxers d'afiliacions i comptes de cotització de la Tresoreria General de la Seguretat Social."
+    },
+    "sau": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16059&geo=com:15",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "cereals": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:15",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "fruiters": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:15",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "oliveres": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:15",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "vinya": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16063&geo=com:15",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "bovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:15",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "ovins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:15",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "porcins": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:15",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "aviram": {
+     "periode": "2020",
+     "enllac": "https://www.idescat.cat/pub/?id=censag&n=16101&geo=com:15",
+     "font": "Idescat, a partir del Cens agrari de l'INE."
+    },
+    "hotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:15",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesHotels": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:15",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "campings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:15",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesCampings": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:15",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "turismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:15",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    },
+    "placesTurismeRural": {
+     "periode": "2025",
+     "enllac": "https://www.idescat.cat/pub/?id=turall&geo=com:15",
+     "font": "Idescat, a partir del Departament d'Empresa i Treball."
+    }
+   }
+  }
+ }
+}
